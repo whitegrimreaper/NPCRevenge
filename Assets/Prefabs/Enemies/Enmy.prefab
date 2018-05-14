@@ -130,6 +130,7 @@ MonoBehaviour:
   - {fileID: 1944327455027142, guid: 428c4a5d992830a4d8204e8f33299608, type: 2}
   - {fileID: 1327766127067080, guid: 9806ea066d7c42342a07ce8ab20e616b, type: 2}
   - {fileID: 1466614069743346, guid: 186bbb652336bbc429d56c9b3a7be19d, type: 2}
+  EnemyType: Warrior
   hp_max: 30
 --- !u!114 &114248551632421674
 MonoBehaviour:
@@ -171,7 +172,7 @@ MonoBehaviour:
     useGraphRaycasting: 0
   traversableTags: -1
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  graphMask: -1
+  graphMask: 1
 --- !u!114 &114586023745795944
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -211,7 +212,7 @@ MonoBehaviour:
   maxAcceleration: 10
   rotationSpeed: 360
   slowdownDistance: 0.6
-  pickNextWaypointDist: 0.64
+  pickNextWaypointDist: 0.25
   endReachedDistance: 0.2
   alwaysDrawGizmos: 1
   slowWhenNotFacingTarget: 0
@@ -296,7 +297,7 @@ SpriteRenderer:
   m_SortingLayerID: 2128677981
   m_SortingLayer: 5
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300004, guid: ec31284c962455a4097373a47f90e824, type: 3}
+  m_Sprite: {fileID: 21300004, guid: 05db93a224e5e164684f5c2b826b2ebb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

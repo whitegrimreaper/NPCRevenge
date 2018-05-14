@@ -35,4 +35,7 @@ public class Trap : ScriptableObject {
 
     [Header("Time in seconds for trap reset. -1 for manual reset")]
     public int resetTime;
+
+    [Header("Damage Dealt")]
+    public int damage;
 }

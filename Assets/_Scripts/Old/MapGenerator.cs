@@ -126,7 +126,7 @@ public class MapGenerator : MonoBehaviour {
         switch (SpriteType)
         {
             case "Grass":
-                Debug.Log("Range is "+tileSprites.Length);
+                //Debug.Log("Range is "+tileSprites.Length);
                 return tileSprites[Random.Range(0,4)];
                 
             default:

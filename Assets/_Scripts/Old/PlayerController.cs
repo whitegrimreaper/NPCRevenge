@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour {
     public Text moneyText;
 
     private GameObject canvas;
+    private ManagerScript manager;
     private Rigidbody2D rb;
     private WeaponScript weapon;
     private bool attacking = false;
@@ -53,87 +54,101 @@ public class PlayerController : MonoBehaviour {
         canvas = GameObject.Find("Canvas");
 
         ScoreText = GameObject.FindGameObjectWithTag("Canvas").GetComponentInChildren<Text>();
+        manager = GameObject.FindGameObjectWithTag("Manager").GetComponentInChildren<ManagerScript>();
    }
 
-	void Update(){
-		if(Input.GetMouseButtonUp(0) && money >= 10)
+    void Update() {
+        //Pauses/unpauses if there's no UI pause
+        if(Input.GetKeyUp(KeyCode.P) && !manager.UIPaused)
         {
-            var mousePos = Input.mousePosition;
-
-            var objectPos = Camera.main.ScreenToWorldPoint(mousePos);
-            Instantiate(Trap, new Vector3(Mathf.Floor(objectPos.x), Mathf.Ceil(objectPos.y), 0), Quaternion.identity);
-            changeMoney(-10);
+            manager.pauseGame();
         }
-
-        if(Input.GetKeyUp(KeyCode.Alpha1) && money >= 50)
+        if(manager.UIPaused && Input.GetKeyUp(KeyCode.Return))
         {
-            int x_offset = 0, y_offset = 0;
-            var mousePos = Input.mousePosition;
 
-            var objectPos = Camera.main.ScreenToWorldPoint(mousePos);
-
-            //This block is super jank, it makes sure the bows get placed correctly
-            if(currRotation == 1)
-            {
-                y_offset = -1;
-            }
-            else if(currRotation == 2)
-            {
-                y_offset = -1;
-                x_offset = 1;
-            }
-            else if(currRotation == 3)
-            {
-                x_offset = 1;
-            }
-            // end jank block
-
-            GameObject reference = (GameObject)Instantiate(Shoot, new Vector3(Mathf.Floor(objectPos.x) + x_offset, Mathf.Ceil(objectPos.y) + y_offset, 0), Quaternion.identity * Rotations[currRotation]);
-            reference.GetComponent<BowScript>().setRotation(currRotation);
-            changeMoney(-50);
         }
 
-        if (Input.GetKeyUp(KeyCode.E))
-        {
-            if (currRotation == 0)
-            {
-                currRotation = 3;
-            }
-            else
-            {
-                currRotation--;
-            }
-        }
-        if (Input.GetKeyUp(KeyCode.Q))
-        {
-            if (currRotation == 3)
-            {
-                currRotation = 0;
-            }
-            else
-            {
-                currRotation++;
-            }
-        }
+        // If we aren't paused at all, we can do normal shit
+        if(!manager.paused && !manager.UIPaused) {
+           if (Input.GetMouseButtonUp(0) && money >= 10)
+           {
+                var mousePos = Input.mousePosition;
 
-        if (Input.GetMouseButtonUp(1) && money >= 10)
-        {
-            var mousePos = Input.mousePosition;
+                var objectPos = Camera.main.ScreenToWorldPoint(mousePos);
+                Instantiate(Trap, new Vector3(Mathf.Floor(objectPos.x), Mathf.Ceil(objectPos.y), 0), Quaternion.identity);
+                changeMoney(-10);
+           }
 
-            var objectPos = Camera.main.ScreenToWorldPoint(mousePos);
-            Instantiate(Block, new Vector3(Mathf.Floor(objectPos.x), Mathf.Ceil(objectPos.y), 0), Quaternion.identity);
-            changeMoney(-10);
+           if (Input.GetKeyUp(KeyCode.Alpha1) && money >= 50)
+           {
+                int x_offset = 0, y_offset = 0;
+                var mousePos = Input.mousePosition;
 
-            AstarPath pathfinder = GameObject.FindGameObjectWithTag("Pathfinder").GetComponent<AstarPath>();
-            pathfinder.Scan();
-        }
+                var objectPos = Camera.main.ScreenToWorldPoint(mousePos);
 
-        if (Input.GetAxis("Jump") > 0.0f && !attacking){
-            weapon.Attack();
-            attacking = true;
-        }
-        else if(Input.GetAxis("Jump") <= 0.0f){
-            attacking = false;
+                //This block is super jank, it makes sure the bows get placed correctly
+                if (currRotation == 1)
+                {
+                    y_offset = -1;
+                }
+                else if (currRotation == 2)
+                {
+                    y_offset = -1;
+                    x_offset = 1;
+                }
+                else if (currRotation == 3)
+                {
+                    x_offset = 1;
+                }
+                // end jank block
+
+                GameObject reference = (GameObject)Instantiate(Shoot, new Vector3(Mathf.Floor(objectPos.x) + x_offset, Mathf.Ceil(objectPos.y) + y_offset, 0), Quaternion.identity * Rotations[currRotation]);
+                reference.GetComponent<BowScript>().setRotation(currRotation);
+                changeMoney(-50);
+            }
+
+            if (Input.GetKeyUp(KeyCode.E))
+            {
+                if (currRotation == 0)
+                {
+                    currRotation = 3;
+                }
+                else
+                {
+                    currRotation--;
+                }
+            }
+            if (Input.GetKeyUp(KeyCode.Q))
+            {
+                if (currRotation == 3)
+                {
+                    currRotation = 0;
+                }
+                else
+                {
+                    currRotation++;
+                }
+            }
+
+            if (Input.GetMouseButtonUp(1) && money >= 10)
+            {
+                var mousePos = Input.mousePosition;
+
+                var objectPos = Camera.main.ScreenToWorldPoint(mousePos);
+                Instantiate(Block, new Vector3(Mathf.Floor(objectPos.x), Mathf.Ceil(objectPos.y), 0), Quaternion.identity);
+                changeMoney(-10);
+
+                AstarPath pathfinder = GameObject.FindGameObjectWithTag("Pathfinder").GetComponent<AstarPath>();
+                pathfinder.Scan();
+            }
+
+            if (Input.GetAxis("Jump") > 0.0f && !attacking) {
+                weapon.Attack();
+                attacking = true;
+            }
+            else if (Input.GetAxis("Jump") <= 0.0f) {
+                attacking = false;
+            }
         }
 
         if (hp_cur <= 0){
@@ -157,9 +172,11 @@ public class PlayerController : MonoBehaviour {
 		float yMove = Input.GetAxis("Vertical");
 
 		Vector2 movement = (new Vector3(xMove, yMove).normalized);
-		//Vector2 velocity = movement * speed * Time.deltaTime/* * 10.0f*/;
-
-        gameObject.transform.Translate(movement * speed * Time.deltaTime);
+        //Vector2 velocity = movement * speed * Time.deltaTime/* * 10.0f*/;
+        if (!manager.paused && !manager.UIPaused)
+        {
+            gameObject.transform.Translate(movement * speed * Time.deltaTime);
+        }
         //rb.velocity = velocity;
     }
 

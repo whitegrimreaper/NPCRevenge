@@ -58,13 +58,17 @@ MonoBehaviour:
   - color: {r: 1, g: 0, b: 0, a: 1}
     prefab: {fileID: 1374150249243104, guid: e3b86fec7f2007549b09ad3b0b2bd992, type: 2}
   - color: {r: 0, g: 0, b: 1, a: 1}
-    prefab: {fileID: 1642157623907602, guid: 7fba813a0ccb4334fb77e8c3fe086442, type: 2}
+    prefab: {fileID: 1128231050844896, guid: 4fc16d19685737b489dd70f888a73d0c, type: 2}
   - color: {r: 0, g: 1, b: 0, a: 1}
-    prefab: {fileID: 1383061930072010, guid: 12414e1274a1edc4cb17c228a69cf81c, type: 2}
+    prefab: {fileID: 1487108928898946, guid: bbcf397c3d548214b88fb28e8af5ea87, type: 2}
   - color: {r: 1, g: 1, b: 1, a: 1}
     prefab: {fileID: 1771238145483104, guid: b2336967ef9d0f8468647e24e5a3e8d8, type: 2}
   - color: {r: 1, g: 0, b: 1, a: 1}
     prefab: {fileID: 1052617435358014, guid: c94a15523e4378248b037f146b655d3a, type: 2}
+  - color: {r: 0, g: 1, b: 1, a: 1}
+    prefab: {fileID: 1446348312650948, guid: 58bcbe8519eb7bc4098f4b1b653c423e, type: 2}
+  - color: {r: 1, g: 1, b: 0, a: 1}
+    prefab: {fileID: 1128681998926836, guid: 4c79c2ec2de97674d941885a3a6650d4, type: 2}
   tileKeys:
   - color: {r: 0, g: 0, b: 0, a: 1}
     prefab: {fileID: 1451312426225228, guid: 2c1f9cc24e644414ea24c3ddd24a81a2, type: 2}

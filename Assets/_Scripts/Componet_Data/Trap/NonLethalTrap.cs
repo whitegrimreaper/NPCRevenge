@@ -30,7 +30,4 @@ public class NonLethalTrap : Trap
 
     [Header("Duration in seconds of effect")]
     public int duration;
-
-    [Header("Amount damaged")]
-    public int amount;
 }

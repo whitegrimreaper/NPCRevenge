@@ -6,12 +6,16 @@ using UnityEngine.UI;
 public class UIGenerator : MonoBehaviour {
     private GameObject canvasGO;
     private GameObject scoreTextGO;
+    private GameObject itemBarGO;
+    private GameObject npcMenuGO;
     private GameObject player;
 
     private bool ranStartUp = false;
 
     public Font myFont;
     public GameObject statusBar;
+    public GameObject itemBar;
+    public GameObject npcMenu;
 
 	// Use this for initialization
 	void Start () {
@@ -33,6 +37,14 @@ public class UIGenerator : MonoBehaviour {
         //  object we're instantiating. Why it doesn't do this automatically is anyone's guess
         scoreTextGO = Instantiate(statusBar, statusBar.transform.position, statusBar.transform.rotation, canvasRT);
         scoreTextGO.GetComponent<RectTransform>().anchoredPosition = new Vector2(scoreTextGO.GetComponent<RectTransform>().anchoredPosition.x, -42);
+
+        //item hotbar
+        itemBarGO = Instantiate(itemBar, itemBar.transform.position, itemBar.transform.rotation, canvasRT);
+        itemBarGO.GetComponent<RectTransform>().anchoredPosition = new Vector2(0.0f, -467.0f);
+
+        //npc menu
+        npcMenuGO = Instantiate(npcMenu, npcMenu.transform.position, npcMenu.transform.rotation, canvasRT);
+        npcMenuGO.GetComponent<RectTransform>().anchoredPosition = new Vector2(0.0f, 0.0f);
     }
 
     // I originally added this function because Unity doesn't have a way to specify what order Start() functions are run,

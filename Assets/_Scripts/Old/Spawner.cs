@@ -11,11 +11,14 @@ public class Spawner : MonoBehaviour {
 	private float faster = 0.0f;
 	private System.Random random;
 	private int spawns = 0;
+    private ManagerScript manager;
 
 	// Use this for initialization
 	void Start () {
 		random = new System.Random(/*(int) Vector3.Angle(this.transform.position, Vector3.forward)*/);
 		timeElapsed += random.Next(0, 4);
+
+        manager = GameObject.FindGameObjectWithTag("Manager").GetComponentInChildren<ManagerScript>();
 	}
 	
 	Vector3 RandomTranslate(){
@@ -27,7 +30,10 @@ public class Spawner : MonoBehaviour {
 	void Update () {
 		Vector3 spawnMove = RandomTranslate();
 
-		timeElapsed += Time.deltaTime;
+        if(!manager.paused && !manager.UIPaused)
+        {
+            timeElapsed += Time.deltaTime;
+        }
 
 		if	(timeElapsed >= spawnInterval){
 			GameObject newEnemy;

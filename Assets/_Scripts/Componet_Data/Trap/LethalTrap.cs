@@ -22,9 +22,6 @@ public class LethalTrap : Trap {
         None
     }
 
-    [Header("Damage Dealt")]
-    public int damage;
-
     [Header("Duration in seconds of effect")]
     public int duration;
 }
