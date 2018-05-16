@@ -8,6 +8,7 @@ public class UIGenerator : MonoBehaviour {
     private GameObject scoreTextGO;
     private GameObject itemBarGO;
     private GameObject npcMenuGO;
+    private GameObject dirIndicatorGO;
     private GameObject player;
 
     private bool ranStartUp = false;
@@ -16,6 +17,7 @@ public class UIGenerator : MonoBehaviour {
     public GameObject statusBar;
     public GameObject itemBar;
     public GameObject npcMenu;
+    public GameObject dirIndicator;
 
 	// Use this for initialization
 	void Start () {
@@ -39,12 +41,19 @@ public class UIGenerator : MonoBehaviour {
         scoreTextGO.GetComponent<RectTransform>().anchoredPosition = new Vector2(scoreTextGO.GetComponent<RectTransform>().anchoredPosition.x, -42);
 
         //item hotbar
-        itemBarGO = Instantiate(itemBar, itemBar.transform.position, itemBar.transform.rotation, canvasRT);
-        itemBarGO.GetComponent<RectTransform>().anchoredPosition = new Vector2(0.0f, -467.0f);
+        //temporarily deactivated
+        //itemBarGO = Instantiate(itemBar, itemBar.transform.position, itemBar.transform.rotation, canvasRT);
+        //itemBarGO.GetComponent<RectTransform>().anchoredPosition = new Vector2(0.0f, -467.0f);
 
         //npc menu
-        npcMenuGO = Instantiate(npcMenu, npcMenu.transform.position, npcMenu.transform.rotation, canvasRT);
-        npcMenuGO.GetComponent<RectTransform>().anchoredPosition = new Vector2(0.0f, 0.0f);
+        //temporarily deactivated
+        //npcMenuGO = Instantiate(npcMenu, npcMenu.transform.position, npcMenu.transform.rotation, canvasRT);
+        //npcMenuGO.GetComponent<RectTransform>().anchoredPosition = new Vector2(0.0f, 0.0f);
+
+        //Trap Direction Indicator
+        // TODO: Implement this
+        //dirIndicatorGO = Instantiate(dirIndicator, dirIndicator.transform.position, dirIndicator.transform.rotation, canvasRT);
+        //dirIndicatorGO.GetComponent<RectTransform>().anchoredPosition = new Vector2( ???, ???);
     }
 
     // I originally added this function because Unity doesn't have a way to specify what order Start() functions are run,
