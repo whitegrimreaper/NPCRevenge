@@ -129,8 +129,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c9c3b91bc47667428d28783fb281b54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameText: {fileID: 0}
-  dialogueText: {fileID: 0}
+  nameText: {fileID: 114623725990577440, guid: 20864e6168e946849802e921302bb796, type: 2}
+  dialogueText: {fileID: 114778226479886064, guid: 20864e6168e946849802e921302bb796,
+    type: 2}
 --- !u!1 &71436355
 GameObject:
   m_ObjectHideFlags: 0
@@ -418,6 +419,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114633772748612580, guid: c7080c6e4bbb1434da7cfe7dba0cc7ee,
+        type: 2}
+      propertyPath: dialogue
+      value: 
+      objectReference: {fileID: 1810890939485756, guid: 20864e6168e946849802e921302bb796,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c7080c6e4bbb1434da7cfe7dba0cc7ee, type: 2}
   m_IsPrefabParent: 0

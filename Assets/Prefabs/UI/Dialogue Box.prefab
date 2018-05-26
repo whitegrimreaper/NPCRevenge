@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 222965878719502706}
   - component: {fileID: 114623725990577440}
   m_Layer: 0
-  m_Name: Text
+  m_Name: Name Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 222473984908672034}
   - component: {fileID: 114778226479886064}
   m_Layer: 0
-  m_Name: Text (1)
+  m_Name: Dialogue Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -94,7 +94,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Blacksmith
+  m_Text: 
 --- !u!114 &114749917135538626
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -154,8 +154,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Hello, my good man! Are you here to get your tools repaired or have you
-    coin for something new?
+  m_Text: 
 --- !u!222 &222473984908672034
 CanvasRenderer:
   m_ObjectHideFlags: 1

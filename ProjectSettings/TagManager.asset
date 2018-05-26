@@ -19,6 +19,7 @@ TagManager:
   - RoguePassable
   - Manager
   - NPCInteraction
+  - DialogueBox
   layers:
   - Default
   - TransparentFX
