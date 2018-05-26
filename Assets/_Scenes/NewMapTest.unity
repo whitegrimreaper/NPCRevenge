@@ -113,6 +113,24 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &8789192 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1021865876741092, guid: 672a0eeec14f2d542850e8f4cccc7f43,
+    type: 2}
+  m_PrefabInternal: {fileID: 2106016158}
+--- !u!114 &8789195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 8789192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c9c3b91bc47667428d28783fb281b54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: {fileID: 0}
+  dialogueText: {fileID: 0}
 --- !u!1 &71436355
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,6 +178,8 @@ MonoBehaviour:
     prefab: {fileID: 1128681998926836, guid: 4c79c2ec2de97674d941885a3a6650d4, type: 2}
   - color: {r: 0, g: 1, b: 1, a: 1}
     prefab: {fileID: 1446348312650948, guid: 58bcbe8519eb7bc4098f4b1b653c423e, type: 2}
+  - color: {r: 0, g: 0, b: 0, a: 1}
+    prefab: {fileID: 1647531537266850, guid: d97bd2070f920d74e87b5b7416325a83, type: 2}
   tileKeys:
   - color: {r: 0, g: 0, b: 0, a: 1}
     prefab: {fileID: 1451312426225228, guid: 2c1f9cc24e644414ea24c3ddd24a81a2, type: 2}
@@ -285,7 +305,7 @@ MonoBehaviour:
   manualDebugFloorRoof: 0
   showSearchTree: 0
   unwalkableNodeDebugSize: 0.3
-  logPathResults: 1
+  logPathResults: 0
   maxNearestNodeDistance: 100
   scanOnStartup: 1
   fullGetNearestSearch: 0
@@ -412,7 +432,6 @@ GameObject:
   - component: {fileID: 2058365214}
   - component: {fileID: 2058365213}
   - component: {fileID: 2058365212}
-  - component: {fileID: 2058365211}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -420,17 +439,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2058365211
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2058365210}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf023dff70bd39e4baac80b0a5c4ddbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!81 &2058365212
 AudioListener:
   m_ObjectHideFlags: 0

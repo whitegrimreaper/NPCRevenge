@@ -142,6 +142,16 @@ public class PlayerController : MonoBehaviour {
                 pathfinder.Scan();
             }
 
+            if (Input.GetKeyUp(KeyCode.L) && Vector3.Distance(this.transform.position, GameObject.FindGameObjectWithTag("NPCInteraction").transform.position) < 3.0)
+            {
+                FindObjectOfType<DialogueTrigger>().TriggerDialogue();
+            }
+
+            if (Input.GetKeyUp(KeyCode.K))
+            {
+                FindObjectOfType<DialogueManager>().DisplayNextSentence();
+            }
+
             if (Input.GetAxis("Jump") > 0.0f && !attacking) {
                 weapon.Attack();
                 attacking = true;

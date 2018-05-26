@@ -8,6 +8,7 @@ public class UIGenerator : MonoBehaviour {
     private GameObject scoreTextGO;
     private GameObject itemBarGO;
     private GameObject npcMenuGO;
+    private GameObject dialogueGO;
     private GameObject dirIndicatorGO;
     private GameObject player;
 
@@ -17,6 +18,7 @@ public class UIGenerator : MonoBehaviour {
     public GameObject statusBar;
     public GameObject itemBar;
     public GameObject npcMenu;
+    public GameObject dialogue;
     public GameObject dirIndicator;
 
 	// Use this for initialization
@@ -41,14 +43,16 @@ public class UIGenerator : MonoBehaviour {
         scoreTextGO.GetComponent<RectTransform>().anchoredPosition = new Vector2(scoreTextGO.GetComponent<RectTransform>().anchoredPosition.x, -42);
 
         //item hotbar
-        //temporarily deactivated
         //itemBarGO = Instantiate(itemBar, itemBar.transform.position, itemBar.transform.rotation, canvasRT);
         //itemBarGO.GetComponent<RectTransform>().anchoredPosition = new Vector2(0.0f, -467.0f);
 
         //npc menu
-        //temporarily deactivated
         //npcMenuGO = Instantiate(npcMenu, npcMenu.transform.position, npcMenu.transform.rotation, canvasRT);
         //npcMenuGO.GetComponent<RectTransform>().anchoredPosition = new Vector2(0.0f, 0.0f);
+
+        //dialogue screen
+        dialogueGO = Instantiate(dialogue, dialogue.transform.position, dialogue.transform.rotation, canvasRT);
+        dialogueGO.GetComponent<RectTransform>().anchoredPosition = new Vector2(0.0f, -375f);
 
         //Trap Direction Indicator
         // TODO: Implement this

@@ -53,6 +53,7 @@ public class EnemyScript : MonoBehaviour {
         if (other.gameObject.tag == "Trap")
         {
             onDeath();
+            //TODO: This should probably play animations instead of instantly destroying both
             Destroy(this.gameObject);
             Destroy(other.gameObject);
         }
