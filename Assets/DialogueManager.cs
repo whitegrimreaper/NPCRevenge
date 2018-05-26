@@ -28,6 +28,7 @@ public class DialogueManager : MonoBehaviour {
     {
         Debug.Log("Starting convo with " + dialogue.name);
         dialogueActive = true;
+        GameObject.FindGameObjectWithTag("Manager").GetComponent<ManagerScript>().pauseForUI();
 
         nameText.text = dialogue.name;
 
@@ -55,7 +56,22 @@ public class DialogueManager : MonoBehaviour {
 
     void EndDialogue()
     {
+        GameObject.FindGameObjectWithTag("Manager").GetComponent<ManagerScript>().unUIPause();
+        nameText.text = "";
+        dialogueText.text = "";
         dialogueActive = false;
         //reee
+    }
+
+    private void Update()
+    {
+        if (dialogueActive)
+        {
+            GameObject.FindGameObjectWithTag("DialogueBox").GetComponent<CanvasGroup>().alpha = 1;
+        }
+        else
+        {
+            GameObject.FindGameObjectWithTag("DialogueBox").GetComponent<CanvasGroup>().alpha = 0;
+        }
     }
 }

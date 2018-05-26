@@ -38,9 +38,10 @@ GameObject:
   - component: {fileID: 224702735034324510}
   - component: {fileID: 222755487179990994}
   - component: {fileID: 114749917135538626}
+  - component: {fileID: 225913814083928042}
   m_Layer: 0
   m_Name: Dialogue Box
-  m_TagString: Untagged
+  m_TagString: DialogueBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -229,3 +230,14 @@ RectTransform:
   m_AnchoredPosition: {x: 0.000015259, y: -317}
   m_SizeDelta: {x: 1055.2, y: 273.3}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &225913814083928042
+CanvasGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1810890939485756}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0

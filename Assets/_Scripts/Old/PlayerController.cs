@@ -68,8 +68,14 @@ public class PlayerController : MonoBehaviour {
 
         }
 
+        //Since we need to be able to move through dialogue while UIpaused, this is up here
+        if (Input.GetKeyUp(KeyCode.K))
+        {
+            FindObjectOfType<DialogueManager>().DisplayNextSentence();
+        }
+
         // If we aren't paused at all, we can do normal shit
-        if(!manager.paused && !manager.UIPaused) {
+        if (!manager.paused && !manager.UIPaused) {
            if (Input.GetMouseButtonUp(0) && money >= 10)
            {
                 var mousePos = Input.mousePosition;
@@ -147,10 +153,7 @@ public class PlayerController : MonoBehaviour {
                 FindObjectOfType<DialogueTrigger>().TriggerDialogue();
             }
 
-            if (Input.GetKeyUp(KeyCode.K))
-            {
-                FindObjectOfType<DialogueManager>().DisplayNextSentence();
-            }
+            
 
             if (Input.GetAxis("Jump") > 0.0f && !attacking) {
                 weapon.Attack();
