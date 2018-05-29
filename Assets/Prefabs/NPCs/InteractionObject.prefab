@@ -53,9 +53,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: pepe
+    name: Blacksmith
     sentences:
-    - REEEEEEEEEEEEEEEEEE
+    - Hello my good man! Do you need repairs, or have you enough coin for something
+      new?
     - REEEE NUMBA 2
     - R3333333
 --- !u!212 &212378029658821828
