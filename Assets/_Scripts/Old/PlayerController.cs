@@ -213,6 +213,10 @@ public class PlayerController : MonoBehaviour {
             ScoreText = GameObject.FindGameObjectWithTag("Canvas").GetComponentInChildren<Text>();
         }
         ScoreText.text = "Money: " + money.ToString();
+        AudioSource audio = GetComponent<AudioSource>();
+        if (amount > 0) {
+            audio.Play();
+        }
     }
 
     public void takeDamage(int amount){

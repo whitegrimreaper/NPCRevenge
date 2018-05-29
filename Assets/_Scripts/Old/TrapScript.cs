@@ -14,5 +14,12 @@ public class TrapScript : MonoBehaviour {
 		
 	}
 
+    public void destroy()
+    {
+        AudioSource audio = GetComponent<AudioSource>();
+        audio.Play();
+        Destroy(this.gameObject, .8f);
+    }
+
     
 }

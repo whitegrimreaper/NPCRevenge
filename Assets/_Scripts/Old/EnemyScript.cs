@@ -55,7 +55,15 @@ public class EnemyScript : MonoBehaviour {
             onDeath();
             //TODO: This should probably play animations instead of instantly destroying both
             Destroy(this.gameObject);
-            Destroy(other.gameObject);
+            
+            if(other.gameObject.GetComponent<TrapScript>())
+            {
+                other.gameObject.GetComponent<TrapScript>().destroy();
+            }
+            else
+            {
+                Destroy(other.gameObject);
+            }
         }
     }
 
