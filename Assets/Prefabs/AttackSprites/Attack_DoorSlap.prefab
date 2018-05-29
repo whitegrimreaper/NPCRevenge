@@ -82,7 +82,7 @@ MonoBehaviour:
   knockback: 20
   speed: 7.5
   forward: {x: 0, y: 0, z: 0}
-  damage: 10
+  damage: 5
   dropRate: 1
 --- !u!212 &212940482402638652
 SpriteRenderer:
