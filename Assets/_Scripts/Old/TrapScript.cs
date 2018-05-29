@@ -16,6 +16,8 @@ public class TrapScript : MonoBehaviour {
 
     public void destroy()
     {
+        Animator animator = GetComponent<Animator>();
+        animator.SetInteger("OnDestroy", 10);
         AudioSource audio = GetComponent<AudioSource>();
         audio.Play();
         Destroy(this.gameObject, .8f);
