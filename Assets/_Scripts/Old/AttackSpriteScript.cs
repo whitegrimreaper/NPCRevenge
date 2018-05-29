@@ -8,6 +8,8 @@ public class AttackSpriteScript : MonoBehaviour {
 	public float knockback;
 	public float speed;
 	public Vector3 forward;
+    public int damage;
+    public int dropRate;
 
 	private float timeElapsed = 0.0f;
 	//private Rigidbody2D rb;
@@ -33,12 +35,12 @@ public class AttackSpriteScript : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D other){
 		if (other.gameObject.tag == "Enemy"){
 			other.gameObject.GetComponent<Rigidbody2D>().AddForce(forward * knockback, ForceMode2D.Impulse);
-			other.gameObject.GetComponent<EnemyScript>().takeDamage(10);
+			other.gameObject.GetComponent<EnemyScript>().takeDamage(damage);
 			//Destroy(this.gameObject);
 		}
 		if (other.gameObject.tag == "Player"){
 			other.gameObject.GetComponent<Rigidbody2D>().AddForce(forward * knockback, ForceMode2D.Impulse);
-			other.gameObject.GetComponent<PlayerController>().takeDamage(10);
+			other.gameObject.GetComponent<PlayerController>().takeDamage(damage);
 			//Destroy(this.gameObject);
 		}
         if (other.gameObject.tag == "Block")
@@ -55,5 +57,12 @@ public class AttackSpriteScript : MonoBehaviour {
             //Debug.Log("REEEEEEEEEEEEEE");
             Destroy(this.gameObject);
         }
+    }
+
+    public void setWeaponStats(Weapon weaponStats) {
+        damage = weaponStats.damage;
+        lifespan = weaponStats.range;
+        speed = weaponStats.attackSpeed;
+        this.gameObject.GetComponent<SpriteRenderer>().sprite = weaponStats.sprite;
     }
 }

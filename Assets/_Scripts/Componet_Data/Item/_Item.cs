@@ -14,7 +14,7 @@ public class _Item : ScriptableObject {
    
     [Range(1,50)]
     public int minPlayerLevel;
-    public Texture2D Sprite;
+    public Sprite sprite;
 
     [Header("In-Game value of item")]
     public int value;

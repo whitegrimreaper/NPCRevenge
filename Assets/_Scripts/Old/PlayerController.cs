@@ -27,6 +27,8 @@ public class PlayerController : MonoBehaviour {
     private bool attacking = false;
     private float timeElapsed = 0.0f;
     private int currRotation = 0;
+    public _Item[] inventory = new _Item[10];
+    private int inventoryIndex = 0;
 
     private Quaternion[] Rotations = new Quaternion[4];
 
@@ -124,6 +126,7 @@ public class PlayerController : MonoBehaviour {
                     currRotation--;
                 }
             }
+
             if (Input.GetKeyUp(KeyCode.Q))
             {
                 if (currRotation == 3)
@@ -136,6 +139,18 @@ public class PlayerController : MonoBehaviour {
                 }
             }
 
+            //switch weapons
+            if (Input.GetKeyUp(KeyCode.R))  {
+                if (inventory.Length > 0) {
+                    inventoryIndex++;
+                    if (inventoryIndex >= inventory.Length)
+                        inventoryIndex = 0;
+                    
+                    setActiveWeapon();
+                }
+            }
+
+            //place crossbow trap
             if (Input.GetMouseButtonUp(1) && money >= 10)
             {
                 var mousePos = Input.mousePosition;
@@ -148,13 +163,13 @@ public class PlayerController : MonoBehaviour {
                 pathfinder.Scan();
             }
 
+            //NPC interaction
             if (Input.GetKeyUp(KeyCode.L) && Vector3.Distance(this.transform.position, GameObject.FindGameObjectWithTag("NPCInteraction").transform.position) < 3.0)
             {
                 FindObjectOfType<DialogueTrigger>().TriggerDialogue();
             }
 
-            
-
+            //attack
             if (Input.GetAxis("Jump") > 0.0f && !attacking) {
                 weapon.Attack();
                 attacking = true;
@@ -213,6 +228,10 @@ public class PlayerController : MonoBehaviour {
             ScoreText = GameObject.FindGameObjectWithTag("Canvas").GetComponentInChildren<Text>();
         }
         ScoreText.text = "Money: " + money.ToString();
+    }
+
+    public void setActiveWeapon() {
+        weapon.setWeaponStats((Weapon)inventory[inventoryIndex]);
     }
 
     public void takeDamage(int amount){

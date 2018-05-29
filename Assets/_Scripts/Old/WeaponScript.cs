@@ -24,6 +24,10 @@ public class WeaponScript : ItemScript {
 		}
 	}
 
+    public void setWeaponStats(Weapon weaponStats) {
+        attackSprite.gameObject.GetComponent<AttackSpriteScript>().setWeaponStats(weaponStats);
+    }
+
 	// Use this for initialization
 	void Start () {
 		timeElapsed = 0.0f;
