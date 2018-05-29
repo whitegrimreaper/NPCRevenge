@@ -7,7 +7,7 @@ public class EnemyScript : MonoBehaviour {
 
 	public float aggroDistance; 
 	public float speed;
-    public GameObject[] loot;
+    public _Item[] loot;
     //public float boost;
     //public float rushTime;
     //public float cooldown;
@@ -87,7 +87,7 @@ public class EnemyScript : MonoBehaviour {
             if (loot.Length > 0)
             {
                 int itemNum = Random.Range(0, loot.Length);
-                GameObject item = Instantiate(loot[itemNum], this.gameObject.transform.position, Quaternion.identity) as GameObject;
+                //GameObject item = Instantiate(loot[itemNum], this.gameObject.transform.position, Quaternion.identity) as GameObject;
             }
         }
     }   

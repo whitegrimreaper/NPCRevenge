@@ -16,12 +16,14 @@ public class Weapon : _Item {
     }
 
     //0 for most melee, > 0 for reach weapons. 0 > for ranged
-    public int range;
+    public float range;
     
     [Range(1,2)]
     public int handedness;
 
     public int damage;
+
+    public float attackSpeed;
 
     [Header("Damage Types")]
     public DmgType[] dmgTypes;

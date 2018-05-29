@@ -19,6 +19,9 @@ public class PlayerController : MonoBehaviour {
 	public float speed;
     public float money = 100; // Should be saved
     public Text moneyText;
+    public List<Weapon> weaponInventory = new List<Weapon>();
+    public List<Armor> armorInventory = new List<Armor>();
+    public List<Consumable> consumableInventory = new List<Consumable>();
 
     private GameObject canvas;
     private ManagerScript manager;
@@ -27,6 +30,11 @@ public class PlayerController : MonoBehaviour {
     private bool attacking = false;
     private float timeElapsed = 0.0f;
     private int currRotation = 0;
+    private int weaponIndex = 0;
+    private int armorIndex = 0;
+    private int consumableIndex = 0;
+    private bool onItem = false;
+    private GameObject touchedItem;
 
     private Quaternion[] Rotations = new Quaternion[4];
 
@@ -124,6 +132,7 @@ public class PlayerController : MonoBehaviour {
                     currRotation--;
                 }
             }
+
             if (Input.GetKeyUp(KeyCode.Q))
             {
                 if (currRotation == 3)
@@ -136,6 +145,36 @@ public class PlayerController : MonoBehaviour {
                 }
             }
 
+            //switch weapons
+            if (Input.GetKeyUp(KeyCode.R))  {
+                if (weaponInventory.Count > 0) {
+                    weaponIndex++;
+                    if (weaponIndex >= weaponInventory.Count)
+                        weaponIndex = 0;
+                    
+                    setActiveWeapon();
+                }
+            }
+
+            //pick up items
+            if (Input.GetKeyUp(KeyCode.F)) {
+                if (onItem) {
+                    if (touchedItem.tag == "Weapon" && weaponInventory.Count < 10)
+                        weaponInventory.Add((Weapon)touchedItem.GetComponent<_Item>());
+
+                    else if (touchedItem.tag == "Armor" && armorInventory.Count < 5)
+                        armorInventory.Add((Armor)touchedItem.GetComponent<_Item>());
+
+                    else if (touchedItem.tag == "Consumable" && consumableInventory.Count < 10)
+                        consumableInventory.Add((Consumable)touchedItem.GetComponent<_Item>());
+
+                    Destroy(touchedItem);
+                    touchedItem = null;
+                    onItem = false;
+                }
+            }
+
+            //place crossbow trap
             if (Input.GetMouseButtonUp(1) && money >= 10)
             {
                 var mousePos = Input.mousePosition;
@@ -148,13 +187,13 @@ public class PlayerController : MonoBehaviour {
                 pathfinder.Scan();
             }
 
+            //NPC interaction
             if (Input.GetKeyUp(KeyCode.L) && Vector3.Distance(this.transform.position, GameObject.FindGameObjectWithTag("NPCInteraction").transform.position) < 3.0)
             {
                 FindObjectOfType<DialogueTrigger>().TriggerDialogue();
             }
 
-            
-
+            //attack
             if (Input.GetAxis("Jump") > 0.0f && !attacking) {
                 weapon.Attack();
                 attacking = true;
@@ -189,6 +228,12 @@ public class PlayerController : MonoBehaviour {
         if (!manager.paused && !manager.UIPaused)
         {
             gameObject.transform.Translate(movement * speed * Time.deltaTime);
+
+            //set onItem to false if true and player moved away
+            if (onItem && (xMove > 0.0f || yMove > 0.0f)) {
+                touchedItem = null;
+                onItem = false;
+            }
         }
         //rb.velocity = velocity;
     }
@@ -202,6 +247,11 @@ public class PlayerController : MonoBehaviour {
             //In the future I'd like to make this dependent on a variable stored in the enemy's stats
             rb.AddForce(new Vector2(5.0f,5.0f), ForceMode2D.Impulse);
             is_invuln = true;
+        }
+
+        else if (other.gameObject.tag == "Weapon" || other.gameObject.tag == "Armor" || other.gameObject.tag == "Consumable") {
+            onItem = true;
+            touchedItem = other.gameObject;
         }
     }
 
@@ -217,6 +267,10 @@ public class PlayerController : MonoBehaviour {
         if (amount > 0) {
             audio.Play();
         }
+    }
+
+    public void setActiveWeapon() {
+        weapon.setWeaponStats(weaponInventory[weaponIndex]);
     }
 
     public void takeDamage(int amount){
