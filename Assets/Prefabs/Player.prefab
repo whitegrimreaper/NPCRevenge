@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 50729705857549482}
   - component: {fileID: 58947515066087258}
   - component: {fileID: 82316947590035934}
+  - component: {fileID: 95210685285318162}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -231,6 +232,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &95210685285318162
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1771238145483104}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 763522af2e981f94ca6b65beda7f72f9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114106819889084114
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -266,6 +285,7 @@ MonoBehaviour:
   speed: 5
   money: 100
   moneyText: {fileID: 0}
+  facingPosition: 0
   weaponInventory:
   - {fileID: 11400000, guid: 719a55ff3e220604ea2e981651fb438c, type: 2}
   - {fileID: 11400000, guid: 7e193fc8d395813448ba6686546104fe, type: 2}
