@@ -19,16 +19,17 @@ public class PlayerController : MonoBehaviour {
 	public float speed;
     public float money = 100; // Should be saved
     public Text moneyText;
-    public List<Weapon> weaponInventory = new List<Weapon>();
-    public List<Armor> armorInventory = new List<Armor>();
-    public List<Consumable> consumableInventory = new List<Consumable>();
+    public float facingPosition;
+    public List<Weapon> weaponInventory = new List<Weapon>(); //Should be saved
+    public List<Armor> armorInventory = new List<Armor>(); //Should be saved
+    public List<Consumable> consumableInventory = new List<Consumable>(); //Should be saved
 
     private GameObject canvas;
     private ManagerScript manager;
     private Rigidbody2D rb;
     private WeaponScript weapon;
     private bool attacking = false;
-    private float timeElapsed = 0.0f;
+    private float timeElapsed = 0.0f; // Might need to save this as well, might remove it with game flow
     private int currRotation = 0;
     private int weaponIndex = 0;
     private int armorIndex = 0;
@@ -73,7 +74,7 @@ public class PlayerController : MonoBehaviour {
         }
         if(manager.UIPaused && Input.GetKeyUp(KeyCode.Return))
         {
-
+            //idk why i made this but i'm not removing it yet
         }
 
         //Since we need to be able to move through dialogue while UIpaused, this is up here
@@ -84,11 +85,14 @@ public class PlayerController : MonoBehaviour {
 
         // If we aren't paused at all, we can do normal shit
         if (!manager.paused && !manager.UIPaused) {
-           if (Input.GetMouseButtonUp(0) && money >= 10)
-           {
-                var mousePos = Input.mousePosition;
+            var mousePos = Input.mousePosition;
+            var objectPos = Camera.main.ScreenToWorldPoint(mousePos);
 
-                var objectPos = Camera.main.ScreenToWorldPoint(mousePos);
+            //Cases used for character positioning
+            //setFacingPositionMouse(mousePos);
+
+            if (Input.GetMouseButtonUp(0) && money >= 10)
+           {
                 Instantiate(Trap, new Vector3(Mathf.Floor(objectPos.x), Mathf.Ceil(objectPos.y), 0), Quaternion.identity);
                 changeMoney(-10);
            }
@@ -96,9 +100,6 @@ public class PlayerController : MonoBehaviour {
            if (Input.GetKeyUp(KeyCode.Alpha1) && money >= 50)
            {
                 int x_offset = 0, y_offset = 0;
-                var mousePos = Input.mousePosition;
-
-                var objectPos = Camera.main.ScreenToWorldPoint(mousePos);
 
                 //This block is super jank, it makes sure the bows get placed correctly
                 if (currRotation == 1)
@@ -177,9 +178,6 @@ public class PlayerController : MonoBehaviour {
             //place crossbow trap
             if (Input.GetMouseButtonUp(1) && money >= 10)
             {
-                var mousePos = Input.mousePosition;
-
-                var objectPos = Camera.main.ScreenToWorldPoint(mousePos);
                 Instantiate(Block, new Vector3(Mathf.Floor(objectPos.x), Mathf.Ceil(objectPos.y), 0), Quaternion.identity);
                 changeMoney(-10);
 
@@ -224,6 +222,7 @@ public class PlayerController : MonoBehaviour {
 		float yMove = Input.GetAxis("Vertical");
 
 		Vector2 movement = (new Vector3(xMove, yMove).normalized);
+        setFacingPositionMove(xMove, yMove);
         //Vector2 velocity = movement * speed * Time.deltaTime/* * 10.0f*/;
         if (!manager.paused && !manager.UIPaused)
         {
@@ -291,5 +290,81 @@ public class PlayerController : MonoBehaviour {
 
         if (hp_cur > hp_max)
             hp_cur = hp_max;
+    }
+
+    //Might do this later, don't delete. It's just wonky as hell and I don't feel like messing with it
+    void setFacingPositionMouse(Vector2 mousePos)
+    {
+        Vector2 vec = mousePos - new Vector2(Screen.width*0.5f, Screen.height*0.5f);
+        float angleRadians = Mathf.Atan2(vec.y, vec.x);
+        float angleDegrees = angleRadians * Mathf.Rad2Deg;
+        facingPosition = angleDegrees + 180;
+        // 0 is at left side x axis, 90 is vertical
+        if((facingPosition >= 0 && facingPosition <= 12.5) || (facingPosition <= 360 && facingPosition >= 347.5))
+        {
+            //Facing full left
+        }
+        else if(facingPosition >= 30 && facingPosition <= 60)
+        {
+            //upper left
+        }
+        else if(facingPosition >= 60 && facingPosition <= 90)
+        {
+
+        }
+    }
+
+    void setFacingPositionMove(float xAxis, float yAxis)
+    {
+        Animator anim = GetComponent<Animator>();
+        if(xAxis > 0)
+        {
+            if(yAxis > 0)
+            {
+                //right and up
+                anim.SetInteger("Facing", 4);
+            }
+            else if (yAxis == 0)
+            {
+                //right
+                anim.SetInteger("Facing", 5);
+            }
+            else
+            {
+                //right and down
+                anim.SetInteger("Facing", 6);
+            }
+        }
+        else if (xAxis < 0)
+        {
+            if (yAxis > 0)
+            {
+                //left and up
+                anim.SetInteger("Facing", 2);
+            }
+            else if (yAxis == 0)
+            {
+                //left
+                anim.SetInteger("Facing", 1);
+            }
+            else
+            {
+                //left and down
+                anim.SetInteger("Facing", 8);
+            }
+        }
+        else
+        {
+            if(yAxis > 0)
+            {
+                //up
+                anim.SetInteger("Facing", 3);
+            }
+            else
+            {
+                //down
+                anim.SetInteger("Facing", 7);
+            }
+        }
     }
 }

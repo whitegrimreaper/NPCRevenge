@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 60628661089774260}
   - component: {fileID: 114207942107052774}
   - component: {fileID: 82133326384339682}
+  - component: {fileID: 95361492653236090}
   m_Layer: 0
   m_Name: Trap
   m_TagString: Trap
@@ -37,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1888856246834104}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.023, y: -1.025, z: 0}
+  m_LocalPosition: {x: 8.201327, y: -3.781547, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -67,12 +68,12 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.18707228, y: -0.8771739}
-      - {x: 0.75264215, y: -0.87319803}
-      - {x: 0.7531824, y: -0.42996097}
-      - {x: 0.55646515, y: -0.2471925}
-      - {x: 0.38027143, y: -0.24640536}
-      - {x: 0.19078827, y: -0.43249083}
+    - - {x: 0.41123867, y: -0.6850314}
+      - {x: 0.6327448, y: -0.64938927}
+      - {x: 0.70522404, y: -0.43795347}
+      - {x: 0.5804453, y: -0.29515123}
+      - {x: 0.4202366, y: -0.31834364}
+      - {x: 0.31068516, y: -0.4564705}
 --- !u!82 &82133326384339682
 AudioSource:
   m_ObjectHideFlags: 1
@@ -168,6 +169,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &95361492653236090
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1888856246834104}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 32742178f93a1384bb026279316b6f9f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114207942107052774
 MonoBehaviour:
   m_ObjectHideFlags: 1

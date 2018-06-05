@@ -57,8 +57,9 @@ MonoBehaviour:
     sentences:
     - Hello my good man! Do you need repairs, or have you enough coin for something
       new?
-    - REEEE NUMBA 2
-    - R3333333
+    - Ah, just here for a chat I see.
+    - Well, be careful! People have said there are some shifty looking individuals
+      around recently.
 --- !u!212 &212378029658821828
 SpriteRenderer:
   m_ObjectHideFlags: 1
