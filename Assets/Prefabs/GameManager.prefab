@@ -20,6 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4509695296909268}
   - component: {fileID: 114777490897846054}
+  - component: {fileID: 114642490398882210}
+  - component: {fileID: 114890713115393016}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Manager
@@ -40,6 +42,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114642490398882210
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1021865876741092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c9c3b91bc47667428d28783fb281b54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: {fileID: 114623725990577440, guid: 20864e6168e946849802e921302bb796, type: 2}
+  dialogueText: {fileID: 114778226479886064, guid: 20864e6168e946849802e921302bb796,
+    type: 2}
 --- !u!114 &114777490897846054
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -53,3 +69,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paused: 0
   UIPaused: 0
+--- !u!114 &114890713115393016
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1021865876741092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89eb0cd29c7af5145be4b0404dd9b678, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Tutorial
+    sentences:
+    - Welcome to NPC Revenge! Press K to move forwards in dialogue
+    - To move around, use WASD, and build beartraps at the mouse's position by clicking.
+    - If enemies get too close, you can attack them yourself! Hit Spacebar to swing
+      at enemies, and use R to swap between available weapons
+    - 
+    - 

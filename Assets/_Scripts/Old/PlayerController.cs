@@ -175,20 +175,25 @@ public class PlayerController : MonoBehaviour {
                 }
             }
 
-            //place crossbow trap
-            if (Input.GetMouseButtonUp(1) && money >= 10)
+            //place block
+            /*if (Input.GetMouseButtonUp(1) && money >= 10)
             {
                 Instantiate(Block, new Vector3(Mathf.Floor(objectPos.x), Mathf.Ceil(objectPos.y), 0), Quaternion.identity);
                 changeMoney(-10);
 
                 AstarPath pathfinder = GameObject.FindGameObjectWithTag("Pathfinder").GetComponent<AstarPath>();
                 pathfinder.Scan();
-            }
+            }*/
 
             //NPC interaction
             if (Input.GetKeyUp(KeyCode.L) && Vector3.Distance(this.transform.position, GameObject.FindGameObjectWithTag("NPCInteraction").transform.position) < 3.0)
             {
                 FindObjectOfType<DialogueTrigger>().TriggerDialogue();
+            }
+
+            if (Input.GetKeyUp(KeyCode.Z) && Vector3.Distance(this.transform.position, GameObject.FindGameObjectWithTag("Interactable").transform.position) < 2.0)
+            {
+                GameObject.FindGameObjectWithTag("Interactable").GetComponent<StashScript>().interact();
             }
 
             //attack
@@ -244,7 +249,7 @@ public class PlayerController : MonoBehaviour {
             //at least in the final product
             //rb.AddForce(other.gameObject.GetComponent<Rigidbody2D>().velocity * 5.0f, ForceMode2D.Impulse);
             //In the future I'd like to make this dependent on a variable stored in the enemy's stats
-            rb.AddForce(new Vector2(5.0f,5.0f), ForceMode2D.Impulse);
+            rb.AddForce(new Vector2(10.0f,10.0f), ForceMode2D.Impulse);
             is_invuln = true;
         }
 

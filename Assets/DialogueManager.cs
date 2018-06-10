@@ -18,7 +18,6 @@ public class DialogueManager : MonoBehaviour {
         nameText = GameObject.FindGameObjectWithTag("Canvas").GetComponentsInChildren<Text>()[1];
         dialogueText = GameObject.FindGameObjectWithTag("Canvas").GetComponentsInChildren<Text>()[2];
         dialogueActive = false;
-        
 
         nameText.text = "";
         dialogueText.text = "";

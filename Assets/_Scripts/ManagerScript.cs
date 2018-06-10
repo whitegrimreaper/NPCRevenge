@@ -7,14 +7,19 @@ public class ManagerScript : MonoBehaviour {
 
     public bool paused = false;
     public bool UIPaused = false;
+    public bool playedTutorial = false;
 	// Use this for initialization
 	void Start () {
-		
+        
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if(!playedTutorial)
+        {
+            this.GetComponent<DialogueTrigger>().TriggerDialogue();
+            playedTutorial = true;
+        }
 	}
 
     public void pauseGame()
