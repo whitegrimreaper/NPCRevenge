@@ -180,11 +180,10 @@ MonoBehaviour:
   aggroDistance: 50
   speed: 2
   loot:
-  - {fileID: 1851248531720726, guid: 1c9c3019361847141ae8a1ee02773688, type: 2}
-  - {fileID: 1944327455027142, guid: 428c4a5d992830a4d8204e8f33299608, type: 2}
-  - {fileID: 1327766127067080, guid: 9806ea066d7c42342a07ce8ab20e616b, type: 2}
-  - {fileID: 1466614069743346, guid: 186bbb652336bbc429d56c9b3a7be19d, type: 2}
-  EnemyType: Rogue
+  - {fileID: 11400000, guid: 398e49f903c17234daf7abb426f1ea05, type: 2}
+  - {fileID: 11400000, guid: b7460a712c3278046a6cf24344adbbbe, type: 2}
+  lootContainer: {fileID: 1283205140521366, guid: 1cb681d3c0b729d4aa603406c3525238,
+    type: 2}
   hp_max: 15
 --- !u!114 &114898717556068640
 MonoBehaviour:
