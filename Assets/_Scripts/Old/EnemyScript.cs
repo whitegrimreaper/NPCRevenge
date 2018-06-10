@@ -7,7 +7,8 @@ public class EnemyScript : MonoBehaviour {
 
 	public float aggroDistance; 
 	public float speed;
-    public _Item[] loot;
+    public List<_Item> loot = new List<_Item>();
+    public GameObject lootContainer;
     //public float boost;
     //public float rushTime;
     //public float cooldown;
@@ -82,13 +83,24 @@ public class EnemyScript : MonoBehaviour {
     //Drops loot on enemy death
     public void onDeath()
     {
-        if (Random.Range(0, 3) == 2)
+       /* if (Random.Range(0, 3) == 2)
         {
             if (loot.Length > 0)
             {
                 int itemNum = Random.Range(0, loot.Length);
                 //GameObject item = Instantiate(loot[itemNum], this.gameObject.transform.position, Quaternion.identity) as GameObject;
             }
+        } */
+
+        foreach (_Item droppedItem in loot.ToArray()) {
+            if (Random.Range(1, 100) <= droppedItem.dropRate) {
+                lootContainer.GetComponent<LootContainer>().itemStats = droppedItem;
+                lootContainer.GetComponent<SpriteRenderer>().sprite = droppedItem.sprite;
+                GameObject item = Instantiate(lootContainer, this.gameObject.transform.position, Quaternion.identity) as GameObject;
+                loot.Remove(droppedItem);
+            }
         }
+
+        Destroy(this.gameObject);
     }   
 }

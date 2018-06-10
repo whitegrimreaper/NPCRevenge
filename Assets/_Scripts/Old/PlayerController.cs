@@ -161,13 +161,13 @@ public class PlayerController : MonoBehaviour {
             if (Input.GetKeyUp(KeyCode.F)) {
                 if (onItem) {
                     if (touchedItem.tag == "Weapon" && weaponInventory.Count < 10)
-                        weaponInventory.Add((Weapon)touchedItem.GetComponent<_Item>());
+                        weaponInventory.Add((Weapon)touchedItem.GetComponent<LootContainer>().itemStats);
 
                     else if (touchedItem.tag == "Armor" && armorInventory.Count < 5)
-                        armorInventory.Add((Armor)touchedItem.GetComponent<_Item>());
+                        armorInventory.Add((Armor)touchedItem.GetComponent<LootContainer>().itemStats);
 
                     else if (touchedItem.tag == "Consumable" && consumableInventory.Count < 10)
-                        consumableInventory.Add((Consumable)touchedItem.GetComponent<_Item>());
+                        consumableInventory.Add((Consumable)touchedItem.GetComponent<LootContainer>().itemStats);
 
                     Destroy(touchedItem);
                     touchedItem = null;
@@ -237,6 +237,7 @@ public class PlayerController : MonoBehaviour {
             if (onItem && (xMove > 0.0f || yMove > 0.0f)) {
                 touchedItem = null;
                 onItem = false;
+                Debug.Log("Off Item!\n");
             }
         }
         //rb.velocity = velocity;
@@ -251,9 +252,13 @@ public class PlayerController : MonoBehaviour {
             //In the future I'd like to make this dependent on a variable stored in the enemy's stats
             rb.AddForce(new Vector2(10.0f,10.0f), ForceMode2D.Impulse);
             is_invuln = true;
+            //Debug.Log("Hit By enemy!!\n");
         }
+    }
 
-        else if (other.gameObject.tag == "Weapon" || other.gameObject.tag == "Armor" || other.gameObject.tag == "Consumable") {
+    void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.tag == "Weapon" || other.gameObject.tag == "Armor" || other.gameObject.tag == "Consumable") {
+            //Debug.Log("On Item!\n");
             onItem = true;
             touchedItem = other.gameObject;
         }
