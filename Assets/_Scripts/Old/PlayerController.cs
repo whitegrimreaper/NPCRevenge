@@ -64,6 +64,7 @@ public class PlayerController : MonoBehaviour {
 
         ScoreText = GameObject.FindGameObjectWithTag("Canvas").GetComponentInChildren<Text>();
         manager = GameObject.FindGameObjectWithTag("Manager").GetComponentInChildren<ManagerScript>();
+        setActiveWeapon();
    }
 
     void Update() {

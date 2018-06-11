@@ -287,10 +287,7 @@ MonoBehaviour:
   moneyText: {fileID: 0}
   facingPosition: 0
   weaponInventory:
-  - {fileID: 11400000, guid: 719a55ff3e220604ea2e981651fb438c, type: 2}
-  - {fileID: 11400000, guid: 7e193fc8d395813448ba6686546104fe, type: 2}
-  - {fileID: 11400000, guid: b7460a712c3278046a6cf24344adbbbe, type: 2}
-  - {fileID: 11400000, guid: 398e49f903c17234daf7abb426f1ea05, type: 2}
+  - {fileID: 11400000, guid: 0618bb86e35ee4d49a2942af5ad14a18, type: 2}
   armorInventory: []
   consumableInventory:
   - {fileID: 0}
