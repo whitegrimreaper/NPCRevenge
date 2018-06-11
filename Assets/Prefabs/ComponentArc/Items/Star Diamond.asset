@@ -11,12 +11,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 719821c88ed1fcb439b2dce1d300b9b9, type: 3}
   m_Name: Star Diamond
   m_EditorClassIdentifier: 
-  Name: New Item
+  Name: Star Diamond
   ItemDescription: Item Description
   minPlayerLevel: 0
   sprite: {fileID: 0}
-  value: 0
-  durability: 0
-  dropRate: 0
-  type: 0
+  value: 50
+  durability: 1
+  dropRate: 1
+  type: 2
   conversion: 0

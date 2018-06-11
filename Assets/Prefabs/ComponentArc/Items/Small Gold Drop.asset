@@ -15,7 +15,7 @@ MonoBehaviour:
   ItemDescription: A small pile of gold
   minPlayerLevel: 0
   sprite: {fileID: 21301302, guid: 6bacb8f76f50a314292725d127697ed7, type: 3}
-  value: 10
+  value: 5
   durability: 1
   dropRate: 40
   type: 2

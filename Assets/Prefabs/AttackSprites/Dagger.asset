@@ -15,9 +15,10 @@ MonoBehaviour:
   ItemDescription: Stabby Stab!
   minPlayerLevel: 0
   sprite: {fileID: 21300720, guid: 790dd6d447674de40a2bf512a25273eb, type: 3}
-  value: 0
+  value: 5
   durability: 0
-  dropRate: 90
+  dropRate: 4
+  type: 0
   ItemType: 0
   range: 3
   handedness: 0

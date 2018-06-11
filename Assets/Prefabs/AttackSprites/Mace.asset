@@ -17,7 +17,8 @@ MonoBehaviour:
   sprite: {fileID: 21300266, guid: 790dd6d447674de40a2bf512a25273eb, type: 3}
   value: 0
   durability: 0
-  dropRate: 10
+  dropRate: 2
+  type: 0
   ItemType: 0
   range: 0.05
   handedness: 0
