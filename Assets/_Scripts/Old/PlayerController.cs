@@ -94,8 +94,10 @@ public class PlayerController : MonoBehaviour {
 
             if (Input.GetMouseButtonUp(0) && money >= 10)
            {
-                Instantiate(Trap, new Vector3(Mathf.Floor(objectPos.x), Mathf.Ceil(objectPos.y), 0), Quaternion.identity);
-                changeMoney(-10);
+                if (Vector3.Distance(this.gameObject.transform.position, new Vector3(Mathf.Floor(objectPos.x), Mathf.Ceil(objectPos.y), 0)) < 4) {
+                    Instantiate(Trap, new Vector3(Mathf.Floor(objectPos.x), Mathf.Ceil(objectPos.y), 0), Quaternion.identity);
+                    changeMoney(-10);
+                }
            }
 
            if (Input.GetKeyUp(KeyCode.Alpha1) && money >= 50)
