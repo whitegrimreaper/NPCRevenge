@@ -392,7 +392,7 @@ Prefab:
     - target: {fileID: 114371657370862054, guid: e1fd0d9602395d84a8d55950f19fa582,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: EvanMapgenTest
+      value: NewMapTest
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e1fd0d9602395d84a8d55950f19fa582, type: 2}

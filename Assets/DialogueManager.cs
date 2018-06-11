@@ -15,16 +15,24 @@ public class DialogueManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         sentences = new Queue<string>();
-        nameText = GameObject.FindGameObjectWithTag("DialogueBox").GetComponentsInChildren<Text>()[0];
-        dialogueText = GameObject.FindGameObjectWithTag("DialogueBox").GetComponentsInChildren<Text>()[1];
+        //nameText = GameObject.FindGameObjectWithTag("DialogueBox").GetComponentsInChildren<Text>()[0];
+        //dialogueText = GameObject.FindGameObjectWithTag("DialogueBox").GetComponentsInChildren<Text>()[1];
         dialogueActive = false;
 
-        nameText.text = "";
-        dialogueText.text = "";
+        //nameText.text = "";
+        //dialogueText.text = "";
 	}
 
     public void StartDialogue(Dialogue dialogue)
     {
+        //if(!nameText)
+        //{
+            nameText = GameObject.FindGameObjectWithTag("Canvas").GetComponentsInChildren<Text>()[1];
+        //}
+        //if(!dialogueText)
+        //{
+            dialogueText = GameObject.FindGameObjectWithTag("Canvas").GetComponentsInChildren<Text>()[2];
+        //}
         Debug.Log("Starting convo with " + dialogue.name);
         dialogueActive = true;
         GameObject.FindGameObjectWithTag("Manager").GetComponent<ManagerScript>().pauseForUI();
@@ -64,14 +72,7 @@ public class DialogueManager : MonoBehaviour {
 
     private void Update()
     {
-        //if(!nameText)
-        //{
-            nameText = GameObject.FindGameObjectWithTag("Canvas").GetComponentsInChildren<Text>()[1];
-        //}
-        //if(!dialogueText)
-        //{
-            dialogueText = GameObject.FindGameObjectWithTag("Canvas").GetComponentsInChildren<Text>()[2];
-        //}
+        
 
         if (dialogueActive)
         {
