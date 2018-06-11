@@ -36,7 +36,7 @@ public class AttackSpriteScript : MonoBehaviour {
 		if (other.gameObject.tag == "Enemy"){
 			other.gameObject.GetComponent<Rigidbody2D>().AddForce(forward * knockback, ForceMode2D.Impulse);
 			other.gameObject.GetComponent<EnemyScript>().takeDamage(damage);
-			//Destroy(this.gameObject);
+			Destroy(this.gameObject);
 		}
 		if (other.gameObject.tag == "Player"){
 			other.gameObject.GetComponent<Rigidbody2D>().AddForce(forward * knockback, ForceMode2D.Impulse);

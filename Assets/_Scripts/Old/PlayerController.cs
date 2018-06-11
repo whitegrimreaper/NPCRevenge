@@ -64,6 +64,7 @@ public class PlayerController : MonoBehaviour {
 
         ScoreText = GameObject.FindGameObjectWithTag("Canvas").GetComponentInChildren<Text>();
         manager = GameObject.FindGameObjectWithTag("Manager").GetComponentInChildren<ManagerScript>();
+        setActiveWeapon();
    }
 
     void Update() {
@@ -144,6 +145,12 @@ public class PlayerController : MonoBehaviour {
                 {
                     currRotation++;
                 }
+            }
+
+            //use consumable
+            if (Input.GetKeyUp(KeyCode.H)) {
+                if (consumableInventory.Count > 0)
+                    heal(consumableInventory[0].amount);
             }
 
             //switch weapons

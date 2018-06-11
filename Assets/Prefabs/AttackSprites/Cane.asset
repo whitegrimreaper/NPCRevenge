@@ -9,18 +9,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9e882fa6f3239c488ab2c539802cad9, type: 3}
-  m_Name: Weapon Name
+  m_Name: Cane
   m_EditorClassIdentifier: 
-  Name: New Item
-  ItemDescription: Item Description
+  Name: Shepherd's Cane
+  ItemDescription: A cane to knock enemies back with.
   minPlayerLevel: 0
-  sprite: {fileID: 0}
-  value: 0
-  durability: 0
+  sprite: {fileID: 21300138, guid: 790dd6d447674de40a2bf512a25273eb, type: 3}
+  value: 1
+  durability: 1
   dropRate: 0
   ItemType: 0
-  range: 0
+  range: 0.4
   handedness: 0
   damage: 0
-  attackSpeed: 0
+  attackSpeed: 5
   dmgTypes: 
