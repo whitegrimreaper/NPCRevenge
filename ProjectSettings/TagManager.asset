@@ -32,7 +32,7 @@ TagManager:
   - Obstacle
   - Ground
   - RogueObstacle
-  - 
+  - Overlay
   - 
   - 
   - 
@@ -74,4 +74,13 @@ TagManager:
     locked: 0
   - name: Equipment
     uniqueID: 3322584685
+    locked: 0
+  - name: Roof
+    uniqueID: 481037267
+    locked: 0
+  - name: Roof2
+    uniqueID: 1279140971
+    locked: 0
+  - name: Roof3
+    uniqueID: 589259319
     locked: 0
