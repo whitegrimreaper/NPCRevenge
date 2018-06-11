@@ -96,6 +96,19 @@ public class EnemyScript : MonoBehaviour {
             if (Random.Range(1, 100) <= droppedItem.dropRate) {
                 lootContainer.GetComponent<LootContainer>().itemStats = droppedItem;
                 lootContainer.GetComponent<SpriteRenderer>().sprite = droppedItem.sprite;
+
+                if (lootContainer.GetComponent<LootContainer>().itemStats.type == _Item.itemType.Weapon)
+                    lootContainer.tag = "Weapon"; 
+                
+                else if (lootContainer.GetComponent<LootContainer>().itemStats.type == _Item.itemType.Currency)
+                    lootContainer.tag = "Currency";
+
+                else if (lootContainer.GetComponent<LootContainer>().itemStats.type == _Item.itemType.Armor)
+                    lootContainer.tag = "Armor";
+
+                else if (lootContainer.GetComponent<LootContainer>().itemStats.type == _Item.itemType.Consumable)
+                    lootContainer.tag = "Consumable";
+
                 GameObject item = Instantiate(lootContainer, this.gameObject.transform.position, Quaternion.identity) as GameObject;
                 loot.Remove(droppedItem);
             }

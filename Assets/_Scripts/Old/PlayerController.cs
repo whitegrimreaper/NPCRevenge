@@ -167,14 +167,15 @@ public class PlayerController : MonoBehaviour {
             //pick up items
             if (Input.GetKeyUp(KeyCode.F)) {
                 if (onItem) {
-                    if (touchedItem.tag == "Weapon" && weaponInventory.Count < 10)
-                        weaponInventory.Add((Weapon)touchedItem.GetComponent<LootContainer>().itemStats);
+                    if (touchedItem.tag == "Weapon" && weaponInventory.Count < 10) {
+                        if (!weaponInventory.Contains((Weapon)touchedItem.GetComponent<LootContainer>().itemStats))
+                            weaponInventory.Add((Weapon)touchedItem.GetComponent<LootContainer>().itemStats);
 
+                        else
+                            changeMoney(touchedItem.GetComponent<LootContainer>().itemStats.value);
+                    }
                     else if (touchedItem.tag == "Armor" && armorInventory.Count < 5)
                         armorInventory.Add((Armor)touchedItem.GetComponent<LootContainer>().itemStats);
-
-                    else if (touchedItem.tag == "Consumable" && consumableInventory.Count < 10)
-                        consumableInventory.Add((Consumable)touchedItem.GetComponent<LootContainer>().itemStats);
 
                     Destroy(touchedItem);
                     touchedItem = null;
@@ -244,7 +245,7 @@ public class PlayerController : MonoBehaviour {
             if (onItem && (xMove > 0.0f || yMove > 0.0f)) {
                 touchedItem = null;
                 onItem = false;
-                Debug.Log("Off Item!\n");
+                //Debug.Log("Off Item!\n");
             }
         }
         //rb.velocity = velocity;
@@ -264,10 +265,26 @@ public class PlayerController : MonoBehaviour {
     }
 
     void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.tag == "Weapon" || other.gameObject.tag == "Armor" || other.gameObject.tag == "Consumable") {
+        if (other.gameObject.tag == "Weapon" || other.gameObject.tag == "Armor") {
             //Debug.Log("On Item!\n");
             onItem = true;
             touchedItem = other.gameObject;
+        }
+
+        //auto pick up money
+        else if (other.gameObject.tag == "Currency") {
+            Currency money = (Currency)other.gameObject.GetComponent<LootContainer>().itemStats;
+            changeMoney(money.value);
+            Destroy(other.gameObject);
+        }
+
+        //auto pick up health potions
+        else if (other.gameObject.tag == "Consumable") {
+            Consumable healing = (Consumable)other.gameObject.GetComponent<LootContainer>().itemStats;
+            if (hp_cur < hp_max) {
+                heal(healing.amount);
+                Destroy(other.gameObject);
+            }
         }
     }
 

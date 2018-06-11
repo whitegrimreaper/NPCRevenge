@@ -14,10 +14,11 @@ MonoBehaviour:
   Name: Health Potion
   ItemDescription: Heals the player's health.
   minPlayerLevel: 0
-  Sprite: {fileID: 0}
+  sprite: {fileID: 21301322, guid: 6bacb8f76f50a314292725d127697ed7, type: 3}
   value: 20
   durability: 1
-  dropRate: 10
+  dropRate: 99
+  type: 3
   ItemTypes: 00000000
   amount: 25
   duration: 0
