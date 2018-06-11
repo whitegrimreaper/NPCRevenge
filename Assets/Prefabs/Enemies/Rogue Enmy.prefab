@@ -182,6 +182,8 @@ MonoBehaviour:
   loot:
   - {fileID: 11400000, guid: 398e49f903c17234daf7abb426f1ea05, type: 2}
   - {fileID: 11400000, guid: b7460a712c3278046a6cf24344adbbbe, type: 2}
+  - {fileID: 11400000, guid: 0e5deb481d755ec4fa5aa8d5ae5f7b23, type: 2}
+  - {fileID: 11400000, guid: 17f0f1462620a3d43819ab7c10612a27, type: 2}
   lootContainer: {fileID: 1283205140521366, guid: 1cb681d3c0b729d4aa603406c3525238,
     type: 2}
   hp_max: 15

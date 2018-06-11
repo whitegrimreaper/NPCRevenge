@@ -24,4 +24,15 @@ public class _Item : ScriptableObject {
 
     [Header("Int value between 1 & 100")]
     public int dropRate;
+
+    [Header("Item Type")]
+    public itemType type;
+    public enum itemType
+    {
+        Weapon,
+        Armor,
+        Currency,
+        Consumable,
+        Generic
+    }
 }

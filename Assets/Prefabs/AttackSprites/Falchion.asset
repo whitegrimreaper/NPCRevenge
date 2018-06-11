@@ -15,9 +15,10 @@ MonoBehaviour:
   ItemDescription: Chop chop!
   minPlayerLevel: 0
   sprite: {fileID: 21300856, guid: 790dd6d447674de40a2bf512a25273eb, type: 3}
-  value: 0
+  value: 25
   durability: 0
-  dropRate: 10
+  dropRate: 1
+  type: 0
   ItemType: 0
   range: 0.2
   handedness: 0

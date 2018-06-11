@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a77e26003100e304d83536fb7c254d62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifespan: 0.1
+  lifespan: 0.4
   knockback: 20
   speed: 5
   forward: {x: 0, y: 0, z: 0}
