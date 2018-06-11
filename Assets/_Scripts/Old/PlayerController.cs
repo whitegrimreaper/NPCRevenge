@@ -147,6 +147,12 @@ public class PlayerController : MonoBehaviour {
                 }
             }
 
+            //use consumable
+            if (Input.GetKeyUp(KeyCode.H)) {
+                if (consumableInventory.Count > 0)
+                    heal(consumableInventory[0].amount);
+            }
+
             //switch weapons
             if (Input.GetKeyUp(KeyCode.R))  {
                 if (weaponInventory.Count > 0) {
