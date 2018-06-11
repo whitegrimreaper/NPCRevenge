@@ -15,8 +15,8 @@ public class DialogueManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         sentences = new Queue<string>();
-        nameText = GameObject.FindGameObjectWithTag("Canvas").GetComponentsInChildren<Text>()[1];
-        dialogueText = GameObject.FindGameObjectWithTag("Canvas").GetComponentsInChildren<Text>()[2];
+        nameText = GameObject.FindGameObjectWithTag("DialogueBox").GetComponentsInChildren<Text>()[0];
+        dialogueText = GameObject.FindGameObjectWithTag("DialogueBox").GetComponentsInChildren<Text>()[1];
         dialogueActive = false;
 
         nameText.text = "";
@@ -64,6 +64,15 @@ public class DialogueManager : MonoBehaviour {
 
     private void Update()
     {
+        //if(!nameText)
+        //{
+            nameText = GameObject.FindGameObjectWithTag("Canvas").GetComponentsInChildren<Text>()[1];
+        //}
+        //if(!dialogueText)
+        //{
+            dialogueText = GameObject.FindGameObjectWithTag("Canvas").GetComponentsInChildren<Text>()[2];
+        //}
+
         if (dialogueActive)
         {
             GameObject.FindGameObjectWithTag("DialogueBox").GetComponent<CanvasGroup>().alpha = 1;
