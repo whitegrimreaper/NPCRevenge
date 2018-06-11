@@ -51,8 +51,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c9c3b91bc47667428d28783fb281b54, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   nameText: {fileID: 114623725990577440, guid: 20864e6168e946849802e921302bb796, type: 2}
   dialogueText: {fileID: 114778226479886064, guid: 20864e6168e946849802e921302bb796,
     type: 2}
@@ -65,8 +65,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c0aea925e45752240aebecd1775028f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   paused: 0
   UIPaused: 0
   playedTutorial: 0
@@ -79,8 +79,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 89eb0cd29c7af5145be4b0404dd9b678, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   dialogue:
     name: Tutorial
     sentences:
@@ -90,4 +90,4 @@ MonoBehaviour:
       at enemies, and use R to swap between available weapons
     - All you have now is your staff, which probably won't hurt them at all, but they've
       probably got weapons for you to pick up. Pick up items with F
-    - 
+    -
