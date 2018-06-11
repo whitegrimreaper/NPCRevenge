@@ -69,6 +69,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paused: 0
   UIPaused: 0
+  playedTutorial: 0
 --- !u!114 &114890713115393016
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -87,5 +88,3 @@ MonoBehaviour:
     - To move around, use WASD, and build beartraps at the mouse's position by clicking.
     - If enemies get too close, you can attack them yourself! Hit Spacebar to swing
       at enemies, and use R to swap between available weapons
-    - 
-    - 
