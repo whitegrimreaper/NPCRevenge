@@ -17,6 +17,6 @@ MonoBehaviour:
   sprite: {fileID: 21301300, guid: 6bacb8f76f50a314292725d127697ed7, type: 3}
   value: 2
   durability: 1
-  dropRate: 70
+  dropRate: 90
   type: 2
   conversion: 0

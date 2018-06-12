@@ -15,8 +15,8 @@ MonoBehaviour:
   ItemDescription: Item Description
   minPlayerLevel: 0
   sprite: {fileID: 21301294, guid: 6bacb8f76f50a314292725d127697ed7, type: 3}
-  value: 15
+  value: 25
   durability: 1
-  dropRate: 15
+  dropRate: 30
   type: 2
   conversion: 0

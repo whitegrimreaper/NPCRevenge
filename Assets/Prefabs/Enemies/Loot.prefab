@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114158944154361668}
   m_Layer: 0
   m_Name: Loot
-  m_TagString: Consumable
+  m_TagString: Currency
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aaabd04a4118c148ae6b157973deac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemStats: {fileID: 11400000, guid: 17f0f1462620a3d43819ab7c10612a27, type: 2}
+  itemStats: {fileID: 11400000, guid: 0e5deb481d755ec4fa5aa8d5ae5f7b23, type: 2}
 --- !u!212 &212674392208824058
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -114,7 +114,7 @@ SpriteRenderer:
   m_SortingLayerID: -1654505205
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21301322, guid: 6bacb8f76f50a314292725d127697ed7, type: 3}
+  m_Sprite: {fileID: 21301302, guid: 6bacb8f76f50a314292725d127697ed7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

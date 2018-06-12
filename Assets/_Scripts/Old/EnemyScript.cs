@@ -116,9 +116,8 @@ public class EnemyScript : MonoBehaviour {
             }
         } */
 
-        int dropModifier = 0;
         foreach (_Item droppedItem in loot.ToArray()) {
-            if ((Random.Range(1, 100) + dropModifier) <= droppedItem.dropRate) {
+            if (Random.Range(1, 100) <= droppedItem.dropRate) {
                 lootContainer.GetComponent<LootContainer>().itemStats = droppedItem;
                 lootContainer.GetComponent<SpriteRenderer>().sprite = droppedItem.sprite;
 
@@ -136,7 +135,6 @@ public class EnemyScript : MonoBehaviour {
 
                 GameObject item = Instantiate(lootContainer, this.gameObject.transform.position, Quaternion.identity) as GameObject;
                 loot.Remove(droppedItem);
-                dropModifier += 1;
             }
         }
         GameObject.FindGameObjectWithTag("Manager").GetComponent<ManagerScript>().enemyKilled();
