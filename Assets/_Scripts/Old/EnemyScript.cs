@@ -122,7 +122,7 @@ public class EnemyScript : MonoBehaviour {
 
                 GameObject item = Instantiate(lootContainer, this.gameObject.transform.position, Quaternion.identity) as GameObject;
                 loot.Remove(droppedItem);
-                dropModifier += 10;
+                dropModifier += 1;
             }
         }
 
