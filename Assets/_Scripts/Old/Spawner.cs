@@ -6,6 +6,8 @@ using System;
 public class Spawner : MonoBehaviour {
 
 	public GameObject enemy;
+    public GameObject enemy2;
+    public GameObject enemy3;
 	public float spawnInterval;
 	private float timeElapsed = 0.0f;
 	private float faster = 0.0f;
@@ -43,7 +45,7 @@ public class Spawner : MonoBehaviour {
             //spawnEnemy();
 
 			timeElapsed = 0.0f;
-            if(spawnInterval >= 2)
+            if(spawnInterval >= 5)
             {
                 spawnInterval -= 1;
             }

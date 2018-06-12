@@ -15,10 +15,11 @@ MonoBehaviour:
   ItemDescription: These simple leather straps barely protect you, but they will have
     to do for now.
   minPlayerLevel: 0
-  Sprite: {fileID: 0}
+  sprite: {fileID: 0}
   value: 5
   durability: 1
   dropRate: 0
+  type: 1
   ItemType: 1
   protection: 10
   dmgTypes: 08000000

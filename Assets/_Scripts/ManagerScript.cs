@@ -8,8 +8,12 @@ public class ManagerScript : MonoBehaviour {
     public bool paused = false;
     public bool UIPaused = false;
     public bool playedTutorial = false;
-	// Use this for initialization
-	void Start () {
+
+    public int currRound = 0;
+
+    public GameFlow flow;
+    // Use this for initialization
+    void Start () {
         
 	}
 	
