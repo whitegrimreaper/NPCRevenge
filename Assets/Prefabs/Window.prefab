@@ -36,7 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4711508615297668}
   - component: {fileID: 212382537711747212}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Window
   m_TagString: RoguePassable
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ GameObject:
   - component: {fileID: 4285465808466024}
   - component: {fileID: 212878377269342526}
   - component: {fileID: 61762012059823180}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Block (13)
   m_TagString: Block
   m_Icon: {fileID: 0}

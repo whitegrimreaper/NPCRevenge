@@ -11,6 +11,10 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 8b20d18e0c18e7d47834151bab3265df, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_Name
+      value: Stash - Fucked
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1128231050844896}

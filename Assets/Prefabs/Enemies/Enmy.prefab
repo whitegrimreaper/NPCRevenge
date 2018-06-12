@@ -126,13 +126,14 @@ MonoBehaviour:
   aggroDistance: 50
   speed: 2
   loot:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 7e193fc8d395813448ba6686546104fe, type: 2}
+  - {fileID: 11400000, guid: b7460a712c3278046a6cf24344adbbbe, type: 2}
+  - {fileID: 11400000, guid: fdb0e386d90b91749beaa8506daf78ac, type: 2}
+  - {fileID: 11400000, guid: 17f0f1462620a3d43819ab7c10612a27, type: 2}
+  - {fileID: 11400000, guid: 3a56f12dab02b0a43b5c87fb4cc9f81a, type: 2}
   lootContainer: {fileID: 1283205140521366, guid: 1cb681d3c0b729d4aa603406c3525238,
     type: 2}
+  EnemyType: Warrior
   hp_max: 30
 --- !u!114 &114248551632421674
 MonoBehaviour:

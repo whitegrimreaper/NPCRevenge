@@ -9,6 +9,7 @@ public class EnemyScript : MonoBehaviour {
 	public float speed;
     public List<_Item> loot = new List<_Item>();
     public GameObject lootContainer;
+    public string EnemyType;
     //public float boost;
     //public float rushTime;
     //public float cooldown;
@@ -72,7 +73,16 @@ public class EnemyScript : MonoBehaviour {
     //a lot of how the AI works so I'll be working on it a lot
     public Transform getTarget()
     {
-        GameObject target = GameObject.FindGameObjectWithTag("Player");
+        GameObject target;
+        if (EnemyType == "Warrior" || EnemyType == "Wizard")
+        {
+            target = GameObject.FindGameObjectWithTag("Player");
+        }
+        else
+        {
+            target = GameObject.FindGameObjectWithTag("Interactable");
+        }
+        
         return target.transform;
     }
     //self_documenting_code.jpg
@@ -115,7 +125,7 @@ public class EnemyScript : MonoBehaviour {
                 dropModifier += 1;
             }
         }
-
+        GameObject.FindGameObjectWithTag("Manager").GetComponent<ManagerScript>().enemyKilled();
         Destroy(this.gameObject);
     }   
 }

@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114011961935816990}
   m_Layer: 0
   m_Name: Spawner
-  m_TagString: Untagged
+  m_TagString: Spawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35,7 +35,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1052617435358014}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2, y: 2, z: 0}
+  m_LocalPosition: {x: -16, y: -7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -52,7 +52,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e4fe586a7ca800429100250d9e2f330, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 1777946887870540, guid: 3881482b737fe684d98d6f05a6796814, type: 2}
+  enemy1: {fileID: 1239814415451202, guid: 5f53d7e5b738e9f4dbedb1d41028d01d, type: 2}
+  enemy2: {fileID: 1777946887870540, guid: 3881482b737fe684d98d6f05a6796814, type: 2}
+  enemy3: {fileID: 1624718320369930, guid: 1ea48b5d332677a4f9c31d19e58853ca, type: 2}
   spawnInterval: 10
 --- !u!212 &212346689511840602
 SpriteRenderer:

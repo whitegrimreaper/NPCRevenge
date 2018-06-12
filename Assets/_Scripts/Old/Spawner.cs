@@ -5,7 +5,9 @@ using System;
 
 public class Spawner : MonoBehaviour {
 
-	public GameObject enemy;
+	public GameObject enemy1;
+    public GameObject enemy2;
+    public GameObject enemy3;
 	public float spawnInterval;
 	private float timeElapsed = 0.0f;
 	private float faster = 0.0f;
@@ -28,27 +30,49 @@ public class Spawner : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		Vector3 spawnMove = RandomTranslate();
+		//Vector3 spawnMove = RandomTranslate();
 
-        if(!manager.paused && !manager.UIPaused)
-        {
-            timeElapsed += Time.deltaTime;
-        }
+        //if(!manager.paused && !manager.UIPaused)
+        //{
+        //    timeElapsed += Time.deltaTime;
+        //}
 
-		if	(timeElapsed >= spawnInterval){
-			GameObject newEnemy;
-			newEnemy = (GameObject) Instantiate(enemy, this.transform.position + spawnMove, Quaternion.identity);
-			newEnemy.transform.parent = this.transform;
+		//if	(timeElapsed >= spawnInterval){
+			//GameObject newEnemy;
+			//newEnemy = (GameObject) Instantiate(enemy1, this.transform.position + spawnMove, Quaternion.identity);
+			//newEnemy.transform.parent = this.transform;
 
             //spawnEnemy();
 
-			timeElapsed = 0.0f;
-            if(spawnInterval >= 2)
-            {
-                spawnInterval -= 1;
-            }
-		}	
+			//timeElapsed = 0.0f;
+            //if(spawnInterval >= 5)
+            //{
+            //    spawnInterval -= 1;
+            //}
+		//}	
 	}
+
+    public void SpawnEnemy(int enemyNum)
+    {
+        GameObject newEnemy;
+        Vector3 spawnMove = RandomTranslate();
+        if(enemyNum == 1)
+        {
+            newEnemy = (GameObject)Instantiate(enemy1, this.transform.position + spawnMove, Quaternion.identity);
+        }
+        else if (enemyNum == 2)
+        {
+            newEnemy = (GameObject)Instantiate(enemy2, this.transform.position + spawnMove, Quaternion.identity);
+        }
+        else
+        {
+            newEnemy = (GameObject)Instantiate(enemy3, this.transform.position + spawnMove, Quaternion.identity);
+        }
+
+
+        
+        newEnemy.transform.parent = this.transform;
+    }
 
 	public void Disable(){
 		enabled = false;
