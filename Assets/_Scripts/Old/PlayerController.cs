@@ -100,29 +100,32 @@ public class PlayerController : MonoBehaviour {
                 }
            }
 
-           if (Input.GetKeyUp(KeyCode.Alpha1) && money >= 50)
+           if (Input.GetMouseButtonUp(1) && money >= 50)
            {
-                int x_offset = 0, y_offset = 0;
+                if (Vector3.Distance(this.gameObject.transform.position, new Vector3(Mathf.Floor(objectPos.x), Mathf.Ceil(objectPos.y), 0)) < 4)
+                {
+                    int x_offset = 0, y_offset = 0;
 
-                //This block is super jank, it makes sure the bows get placed correctly
-                if (currRotation == 1)
-                {
-                    y_offset = -1;
-                }
-                else if (currRotation == 2)
-                {
-                    y_offset = -1;
-                    x_offset = 1;
-                }
-                else if (currRotation == 3)
-                {
-                    x_offset = 1;
-                }
-                // end jank block
+                    //This block is super jank, it makes sure the bows get placed correctly
+                    if (currRotation == 1)
+                    {
+                        y_offset = -1;
+                    }
+                    else if (currRotation == 2)
+                    {
+                        y_offset = -1;
+                        x_offset = 1;
+                    }
+                    else if (currRotation == 3)
+                    {
+                        x_offset = 1;
+                    }
+                    // end jank block
 
-                GameObject reference = (GameObject)Instantiate(Shoot, new Vector3(Mathf.Floor(objectPos.x) + x_offset, Mathf.Ceil(objectPos.y) + y_offset, 0), Quaternion.identity * Rotations[currRotation]);
-                reference.GetComponent<BowScript>().setRotation(currRotation);
-                changeMoney(-50);
+                    GameObject reference = (GameObject)Instantiate(Shoot, new Vector3(Mathf.Floor(objectPos.x) + x_offset, Mathf.Ceil(objectPos.y) + y_offset, 0), Quaternion.identity * Rotations[currRotation]);
+                    reference.GetComponent<BowScript>().setRotation(currRotation);
+                    changeMoney(-50);
+                }
             }
 
             if (Input.GetKeyUp(KeyCode.E))
@@ -163,25 +166,6 @@ public class PlayerController : MonoBehaviour {
                         weaponIndex = 0;
                     
                     setActiveWeapon();
-                }
-            }
-
-            //pick up items
-            if (Input.GetKeyUp(KeyCode.F)) {
-                if (onItem) {
-                    if (touchedItem.tag == "Weapon" && weaponInventory.Count < 10) {
-                        if (!weaponInventory.Contains((Weapon)touchedItem.GetComponent<LootContainer>().itemStats))
-                            weaponInventory.Add((Weapon)touchedItem.GetComponent<LootContainer>().itemStats);
-
-                        else
-                            changeMoney(touchedItem.GetComponent<LootContainer>().itemStats.value);
-                    }
-                    else if (touchedItem.tag == "Armor" && armorInventory.Count < 5)
-                        armorInventory.Add((Armor)touchedItem.GetComponent<LootContainer>().itemStats);
-
-                    Destroy(touchedItem);
-                    touchedItem = null;
-                    onItem = false;
                 }
             }
 
@@ -242,13 +226,6 @@ public class PlayerController : MonoBehaviour {
         if (!manager.paused && !manager.UIPaused)
         {
             gameObject.transform.Translate(movement * speed * Time.deltaTime);
-
-            //set onItem to false if true and player moved away
-            if (onItem && (xMove > 0.0f || yMove > 0.0f)) {
-                touchedItem = null;
-                onItem = false;
-                //Debug.Log("Off Item!\n");
-            }
         }
         //rb.velocity = velocity;
     }
@@ -269,8 +246,20 @@ public class PlayerController : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.tag == "Weapon" || other.gameObject.tag == "Armor") {
             //Debug.Log("On Item!\n");
-            onItem = true;
             touchedItem = other.gameObject;
+            if (touchedItem.tag == "Weapon" && weaponInventory.Count < 10)
+            {
+                if (!weaponInventory.Contains((Weapon)touchedItem.GetComponent<LootContainer>().itemStats))
+                    weaponInventory.Add((Weapon)touchedItem.GetComponent<LootContainer>().itemStats);
+
+                else
+                    changeMoney(touchedItem.GetComponent<LootContainer>().itemStats.value);
+            }
+            else if (touchedItem.tag == "Armor" && armorInventory.Count < 5)
+                armorInventory.Add((Armor)touchedItem.GetComponent<LootContainer>().itemStats);
+
+            Destroy(touchedItem);
+            touchedItem = null;
         }
 
         //auto pick up money
