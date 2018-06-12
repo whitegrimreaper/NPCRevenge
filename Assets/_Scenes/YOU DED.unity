@@ -374,26 +374,11 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 114700328286226310, guid: e1fd0d9602395d84a8d55950f19fa582,
-        type: 2}
-      propertyPath: m_Text
-      value: Restart Game
-      objectReference: {fileID: 0}
     - target: {fileID: 114371657370862054, guid: e1fd0d9602395d84a8d55950f19fa582,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1397588414}
-    - target: {fileID: 114371657370862054, guid: e1fd0d9602395d84a8d55950f19fa582,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadScene
-      objectReference: {fileID: 0}
-    - target: {fileID: 114371657370862054, guid: e1fd0d9602395d84a8d55950f19fa582,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: NewMapTest
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e1fd0d9602395d84a8d55950f19fa582, type: 2}
   m_IsPrefabParent: 0
