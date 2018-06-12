@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class Round {
 
-    public GameObject enemy;
+    public int enemy;
     public Dialogue dialogue;
     public int postWaitTime;
 }

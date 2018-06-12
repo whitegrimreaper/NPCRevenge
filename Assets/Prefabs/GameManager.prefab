@@ -70,6 +70,35 @@ MonoBehaviour:
   paused: 0
   UIPaused: 0
   playedTutorial: 0
+  currRound: -1
+  roundActive: 0
+  flow:
+    rounds:
+    - enemy: 1
+      dialogue:
+        name: 
+        sentences: []
+      postWaitTime: 20
+    - enemy: 2
+      dialogue:
+        name: 
+        sentences: []
+      postWaitTime: 20
+    - enemy: 3
+      dialogue:
+        name: 
+        sentences: []
+      postWaitTime: 20
+    - enemy: 2
+      dialogue:
+        name: 
+        sentences: []
+      postWaitTime: 20
+    - enemy: 3
+      dialogue:
+        name: 
+        sentences: []
+      postWaitTime: 20
 --- !u!114 &114890713115393016
 MonoBehaviour:
   m_ObjectHideFlags: 1

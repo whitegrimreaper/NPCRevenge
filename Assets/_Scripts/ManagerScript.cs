@@ -8,10 +8,14 @@ public class ManagerScript : MonoBehaviour {
     public bool paused = false;
     public bool UIPaused = false;
     public bool playedTutorial = false;
+    public bool nextRoundReady = true;
 
-    public int currRound = 0;
+    public int currRound = -1;
+    public bool roundActive = false;
 
     public GameFlow flow;
+
+    private int timer;
     // Use this for initialization
     void Start () {
         
@@ -24,7 +28,23 @@ public class ManagerScript : MonoBehaviour {
             this.GetComponent<DialogueTrigger>().TriggerDialogue();
             playedTutorial = true;
         }
+        else if(playedTutorial && !roundActive && !UIPaused && nextRoundReady)
+        {
+            currRound++;
+            roundActive = true;
+            nextRoundReady = false;
+            GameObject.FindGameObjectWithTag("Spawner").GetComponent<Spawner>().SpawnEnemy(flow.rounds[currRound].enemy);
+            Debug.Log("Starting round " + currRound);
+        }
+
+
 	}
+
+    public void enemyKilled()
+    {
+        roundActive = false;
+        nextRoundReady = true;
+    }
 
     public void pauseGame()
     {

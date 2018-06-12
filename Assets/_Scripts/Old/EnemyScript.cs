@@ -125,7 +125,7 @@ public class EnemyScript : MonoBehaviour {
                 dropModifier += 1;
             }
         }
-
+        GameObject.FindGameObjectWithTag("Manager").GetComponent<ManagerScript>().enemyKilled();
         Destroy(this.gameObject);
     }   
 }

@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 61983507221567742}
   - component: {fileID: 95853241559463258}
   m_Layer: 0
-  m_Name: Stash
+  m_Name: Stash 1
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

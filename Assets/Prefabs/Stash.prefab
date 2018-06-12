@@ -32,7 +32,7 @@ GameObject:
   - component: {fileID: 61381756843516490}
   - component: {fileID: 95968572566936802}
   m_Layer: 0
-  m_Name: Stash - Fucked
+  m_Name: Stash
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
