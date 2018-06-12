@@ -33,11 +33,19 @@ public class ManagerScript : MonoBehaviour {
             currRound++;
             roundActive = true;
             nextRoundReady = false;
-            GameObject.FindGameObjectWithTag("Spawner").GetComponent<Spawner>().SpawnEnemy(flow.rounds[currRound].enemy);
+            if(currRound >= 5)
+            {
+                GameObject.FindGameObjectWithTag("Spawner").GetComponent<Spawner>().spawnInfinite = true;
+            }
+            else
+            {
+                GameObject.FindGameObjectWithTag("Spawner").GetComponent<Spawner>().SpawnEnemy(flow.rounds[currRound].enemy);
+            }
+            
             Debug.Log("Starting round " + currRound);
         }
 
-        if(!nextRoundReady && !roundActive)
+        if(!nextRoundReady && !roundActive && !paused && !UIPaused)
         {
             timer -= Time.deltaTime;
             if(timer < 0)
@@ -49,9 +57,13 @@ public class ManagerScript : MonoBehaviour {
 
     public void enemyKilled()
     {
-        roundActive = false;
-        //nextRoundReady = false;
-        timer = flow.rounds[currRound].postWaitTime;
+        if (currRound < 5)
+        {
+            roundActive = false;
+            //nextRoundReady = false;
+            FindObjectOfType<DialogueManager>().StartDialogue(flow.rounds[currRound].dialogue);
+            timer = flow.rounds[currRound].postWaitTime;
+        }
     }
 
     public void pauseGame()

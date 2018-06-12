@@ -77,8 +77,28 @@ MonoBehaviour:
     rounds:
     - enemy: 1
       dialogue:
-        name: 
-        sentences: []
+        name: Narrator
+        sentences:
+        - What the heck? You actually managed to beat one of those guys?
+        - Well, let's hope you can keep doing it, I heard another one is coming by
+          sometime soon!
+      postWaitTime: 10
+    - enemy: 2
+      dialogue:
+        name: Narrator
+        sentences:
+        - Wow, that was one shady looking character. And he didn't even care about
+          you! It looked like he was just trying to steal your money!
+        - I understand how you feel bud, I want these stupid players out of my house
+          too. Maybe I should fight back too...
+      postWaitTime: 10
+    - enemy: 3
+      dialogue:
+        name: Narrator
+        sentences:
+        - Even a venerable sage like that is trying to kill you! What is this world
+          coming to?
+        - I'm getting the town together, we need to fight these guys with you!
       postWaitTime: 10
     - enemy: 2
       dialogue:
@@ -87,18 +107,11 @@ MonoBehaviour:
       postWaitTime: 10
     - enemy: 3
       dialogue:
-        name: 
-        sentences: []
-      postWaitTime: 10
-    - enemy: 2
-      dialogue:
-        name: 
-        sentences: []
-      postWaitTime: 10
-    - enemy: 3
-      dialogue:
-        name: 
-        sentences: []
+        name: Narrator
+        sentences:
+        - Oh no, there are more coming! I think they turned this into a multiplayer
+          world, there are so many of them!
+        - Help us Farmer, there are too many for us to fight alone!
       postWaitTime: 10
   timer: 0
 --- !u!114 &114890713115393016
@@ -120,5 +133,6 @@ MonoBehaviour:
     - If enemies get too close, you can attack them yourself! Hit Spacebar to swing
       at enemies, and use R to swap between available weapons
     - All you have now is your staff, which probably won't hurt them at all, but they've
-      probably got weapons for you to pick up. Pick up items with F
-    - 
+      probably got weapons for you to pick up.
+    - You also have crossbow traps to place! Choose a direction with the arrow keys
+      and place it with Right Click. Make sure you don't run out of money though!
