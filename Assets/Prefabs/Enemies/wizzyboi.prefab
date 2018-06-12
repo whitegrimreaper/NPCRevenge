@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 114695687186552124}
   - component: {fileID: 114582385401580516}
   m_Layer: 0
-  m_Name: New Prefab
+  m_Name: wizzyboi
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -191,6 +191,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 17f0f1462620a3d43819ab7c10612a27, type: 2}
   lootContainer: {fileID: 1283205140521366, guid: 1cb681d3c0b729d4aa603406c3525238,
     type: 2}
+  EnemyType: Wizard
   hp_max: 15
 --- !u!114 &114695687186552124
 MonoBehaviour:
@@ -217,7 +218,7 @@ MonoBehaviour:
     useGraphRaycasting: 0
   traversableTags: -1
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  graphMask: 3
+  graphMask: 1
 --- !u!212 &212542559752451124
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -253,7 +254,7 @@ SpriteRenderer:
   m_SortingLayerID: 2128677981
   m_SortingLayer: 5
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300004, guid: 52375948b1128ea409fd1708066c60c8, type: 3}
+  m_Sprite: {fileID: 21300004, guid: 5a72e6fdee2a2bf49b5b71f240157b7f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -298,7 +299,7 @@ SpriteRenderer:
   m_SortingLayerID: -972382611
   m_SortingLayer: 6
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300856, guid: 790dd6d447674de40a2bf512a25273eb, type: 3}
+  m_Sprite: {fileID: 21300172, guid: 790dd6d447674de40a2bf512a25273eb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

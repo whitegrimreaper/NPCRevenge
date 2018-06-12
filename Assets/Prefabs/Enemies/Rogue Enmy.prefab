@@ -186,6 +186,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 17f0f1462620a3d43819ab7c10612a27, type: 2}
   lootContainer: {fileID: 1283205140521366, guid: 1cb681d3c0b729d4aa603406c3525238,
     type: 2}
+  EnemyType: Rogue
   hp_max: 15
 --- !u!114 &114898717556068640
 MonoBehaviour:
