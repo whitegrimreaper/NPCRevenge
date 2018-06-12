@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TrapScript : MonoBehaviour {
+    public int damage;
 
 	// Use this for initialization
 	void Start () {
@@ -23,5 +24,7 @@ public class TrapScript : MonoBehaviour {
         Destroy(this.gameObject, .8f);
     }
 
-    
+    public int dealDamage() {
+        return damage;
+    }    
 }

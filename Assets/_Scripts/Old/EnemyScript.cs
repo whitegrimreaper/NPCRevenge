@@ -49,32 +49,39 @@ public class EnemyScript : MonoBehaviour {
         //timeElapsed += Time.deltaTime;
 	}
 
-    void OnCollisionEnter2D(Collision2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         //frost_traps.jpg
         if (other.gameObject.tag == "Trap")
         {
-            onDeath();
+            //onDeath();
             //TODO: This should probably play animations instead of instantly destroying both
-            Destroy(this.gameObject);
-            
-            if(other.gameObject.GetComponent<TrapScript>())
+
+            if (other.gameObject.GetComponent<TrapScript>())
             {
+                takeDamage(other.gameObject.GetComponent<TrapScript>().dealDamage());
                 other.gameObject.GetComponent<TrapScript>().destroy();
             }
             else
             {
+                takeDamage(other.gameObject.GetComponent<ArrowScript>().dealDamage());
                 Destroy(other.gameObject);
             }
         }
-    }
 
-    void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.tag == "Bow")  {
+        else if (other.gameObject.tag == "Bow")
+        {
             Destroy(other.gameObject);
-            Debug.Log("hit bow\n");
+            //Debug.Log("hit bow\n");
         }
     }
+
+   /* void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.tag == "Bow")  {
+            Destroy(other.gameObject);
+            //Debug.Log("hit bow\n");
+        }
+    } */
 
         //Returns Transform of target for pathfinding functions. This fcn will determine
         //a lot of how the AI works so I'll be working on it a lot

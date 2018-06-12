@@ -6,6 +6,7 @@ public class ArrowScript : MonoBehaviour {
 
     private float timeToDie = 0.0f;
     private bool despawnb = false;
+    public int damage;
 	// Use this for initialization
 	void Start () {
 		
@@ -29,5 +30,9 @@ public class ArrowScript : MonoBehaviour {
         Destroy(this.GetComponent<Rigidbody2D>());
         Destroy(this.GetComponent<CapsuleCollider2D>());
         despawnb = true;
+    }
+
+    public int dealDamage() {
+        return damage;
     }
 }
