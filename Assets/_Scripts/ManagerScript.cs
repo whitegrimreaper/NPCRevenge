@@ -15,7 +15,7 @@ public class ManagerScript : MonoBehaviour {
 
     public GameFlow flow;
 
-    private int timer;
+    public float timer;
     // Use this for initialization
     void Start () {
         
@@ -37,13 +37,21 @@ public class ManagerScript : MonoBehaviour {
             Debug.Log("Starting round " + currRound);
         }
 
-
+        if(!nextRoundReady && !roundActive)
+        {
+            timer -= Time.deltaTime;
+            if(timer < 0)
+            {
+                nextRoundReady = true;
+            }
+        }
 	}
 
     public void enemyKilled()
     {
         roundActive = false;
-        nextRoundReady = true;
+        //nextRoundReady = false;
+        timer = flow.rounds[currRound].postWaitTime;
     }
 
     public void pauseGame()
