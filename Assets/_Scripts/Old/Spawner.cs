@@ -14,6 +14,7 @@ public class Spawner : MonoBehaviour {
 	private System.Random random;
 	private int spawns = 0;
     private ManagerScript manager;
+    public bool spawnInfinite = false;
 
 	// Use this for initialization
 	void Start () {
@@ -30,26 +31,25 @@ public class Spawner : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		//Vector3 spawnMove = RandomTranslate();
+        if (spawnInfinite)
+        {
+            Vector3 spawnMove = RandomTranslate();
 
-        //if(!manager.paused && !manager.UIPaused)
-        //{
-        //    timeElapsed += Time.deltaTime;
-        //}
+            if (!manager.paused && !manager.UIPaused)
+            {
+                timeElapsed += Time.deltaTime;
+            }
 
-		//if	(timeElapsed >= spawnInterval){
-			//GameObject newEnemy;
-			//newEnemy = (GameObject) Instantiate(enemy1, this.transform.position + spawnMove, Quaternion.identity);
-			//newEnemy.transform.parent = this.transform;
+            if (timeElapsed >= spawnInterval) {
+                SpawnEnemy(UnityEngine.Random.Range(1,3));
 
-            //spawnEnemy();
-
-			//timeElapsed = 0.0f;
-            //if(spawnInterval >= 5)
-            //{
-            //    spawnInterval -= 1;
-            //}
-		//}	
+                timeElapsed = 0.0f;
+                if (spawnInterval >= 5)
+                {
+                    spawnInterval -= 1;
+                }
+            }
+        }
 	}
 
     public void SpawnEnemy(int enemyNum)
