@@ -128,29 +128,17 @@ public class PlayerController : MonoBehaviour {
                 }
             }
 
-            if (Input.GetKeyUp(KeyCode.E))
-            {
-                if (currRotation == 0)
-                {
-                    currRotation = 3;
-                }
-                else
-                {
-                    currRotation--;
-                }
-            }
+            if (Input.GetKeyUp(KeyCode.UpArrow))
+                currRotation = 3;
 
-            if (Input.GetKeyUp(KeyCode.Q))
-            {
-                if (currRotation == 3)
-                {
-                    currRotation = 0;
-                }
-                else
-                {
-                    currRotation++;
-                }
-            }
+            if (Input.GetKeyUp(KeyCode.LeftArrow))
+                currRotation = 0;
+
+            if (Input.GetKeyUp(KeyCode.RightArrow))
+                currRotation = 2;
+
+            if (Input.GetKeyUp(KeyCode.DownArrow))
+                currRotation = 1;
 
             //use consumable
             if (Input.GetKeyUp(KeyCode.H)) {
