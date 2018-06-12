@@ -6,6 +6,8 @@ public class BowScript : MonoBehaviour {
     public Object arrow;
 
     public int currRotation = 0; //wow this is jank
+    private double resetTime = 3.0;
+    private double timeShot = 5.0;
 
 	// Use this for initialization
 	void Start () {
@@ -14,9 +16,14 @@ public class BowScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        timeShot += Time.deltaTime;
 		if(Input.GetKeyUp(KeyCode.F))
         {
-            fireArrow();
+            GameObject player = GameObject.FindWithTag("Player");
+            if (Vector3.Distance(this.gameObject.transform.position, player.transform.position) < 4 && timeShot >= resetTime) {
+                fireArrow();
+                timeShot = 0.0;
+            }
         }
 	}
 

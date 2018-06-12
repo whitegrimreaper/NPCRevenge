@@ -23,6 +23,7 @@ TagManager:
   - Consumable
   - Currency
   - Spawner
+  - Bow
   layers:
   - Default
   - TransparentFX

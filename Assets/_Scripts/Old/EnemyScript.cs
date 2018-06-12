@@ -69,9 +69,16 @@ public class EnemyScript : MonoBehaviour {
         }
     }
 
-    //Returns Transform of target for pathfinding functions. This fcn will determine
-    //a lot of how the AI works so I'll be working on it a lot
-    public Transform getTarget()
+    void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.tag == "Bow")  {
+            Destroy(other.gameObject);
+            Debug.Log("hit bow\n");
+        }
+    }
+
+        //Returns Transform of target for pathfinding functions. This fcn will determine
+        //a lot of how the AI works so I'll be working on it a lot
+        public Transform getTarget()
     {
         GameObject target;
         if (EnemyType == "Warrior" || EnemyType == "Wizard")
